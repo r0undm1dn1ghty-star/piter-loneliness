@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>кубик одиночества — 3D</title>
+<style>
+  :root{ --deep:#1a0b2e; --shadow:#2e1a47; --lav:#b57edc; --glow:#8a2be2; --ink:#e8dff5; }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(138,43,226,.22), transparent 65%),
+      linear-gradient(178deg,#140a24 4%,var(--deep) 46%,var(--shadow) 100%);
+    color:var(--ink);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:8vh 6vw 10vh}
+  .cap{font-size:11px;letter-spacing:.32em;color:var(--lav);text-transform:uppercase}
+  h2{font-size:clamp(24px,4.4vw,40px);font-weight:600;margin:14px 0 6px;letter-spacing:-.01em;text-align:center}
+  .sub{color:#9c8bbd;font-size:14.5px;margin-bottom:6vh;max-width:52ch;text-align:center;line-height:1.6}
+
+  .scene3d{width:230px;height:230px;perspective:1100px;margin:4vh 0 5vh}
+  .jump{width:100%;height:100%}
+  .jump.roll{animation:jump 1.7s cubic-bezier(.4,0,.7,1) both}
+  @keyframes jump{
+    0%{transform:translateY(0)}
+    28%{transform:translateY(-150px)}
+    50%{transform:translateY(4px)}
+    64%{transform:translateY(-52px)}
+    78%{transform:translateY(2px)}
+    88%{transform:translateY(-14px)}
+    100%{transform:translateY(0)}
+  }
+  .cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+    transform:rotateX(-16deg) rotateY(24deg);transition:transform 1.7s cubic-bezier(.3,.75,.3,1)}
+  .face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:16px;font-size:15px;line-height:1.35;color:var(--ink);
+    background:linear-gradient(160deg,rgba(46,26,71,.92),rgba(26,11,46,.94));
+    border:1px solid rgba(181,126,220,.4);border-radius:6px;
+    box-shadow:inset 0 0 40px rgba(138,43,226,.18)}
+  .face b{display:block;font-size:19px;color:#fff;margin-bottom:6px;letter-spacing:.02em}
+  .face small{display:block;font-size:10px;letter-spacing:.22em;color:var(--lav);text-transform:uppercase;margin-bottom:10px}
+  .front {transform:translateZ(115px)}
+  .back  {transform:rotateY(180deg) translateZ(115px)}
+  .right {transform:rotateY(90deg) translateZ(115px)}
+  .left  {transform:rotateY(-90deg) translateZ(115px)}
+  .top   {transform:rotateX(90deg) translateZ(115px)}
+  .bottom{transform:rotateX(-90deg) translateZ(115px)}
+
+  .rollbtn{background:none;border:none;cursor:pointer;color:var(--ink);font:inherit;font-size:17px;
+    padding:12px 6px 10px;border-bottom:2px solid var(--glow);transition:.2s}
+  .rollbtn:hover{color:var(--lav)}
+  .rollbtn:disabled{opacity:.4;cursor:default}
+
+  .card{max-width:560px;width:100%;margin-top:5vh;border:1px solid rgba(181,126,220,.22);border-radius:4px;
+    background:rgba(20,10,36,.6);padding:24px 24px 22px;opacity:0;transform:translateY(12px);transition:.5s}
+  .card.on{opacity:1;transform:none}
+  .card .no{font-size:10px;letter-spacing:.2em;color:var(--lav);text-transform:uppercase;margin-bottom:10px}
+  .card .q{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:19px;line-height:1.5;margin:0 0 12px}
+  .card .w{font-size:13px;color:#a493c2;line-height:1.65;margin:0}
+  .card .w b{color:var(--ink)}
+</style></head>
+<body>
+  <div class="cap">петербургское одиночество · механика</div>
+  <h2>брось кубик — вспомни вечер</h2>
+  <p class="sub">шесть питерских сцен. одна выпадет — и вытянется воспоминание, которое ты давно не крутил.</p>
+
+  <div class="scene3d">
+    <div class="jump" id="jump">
+      <div class="cube" id="cube">
+        <div class="face front"><div><small>сцена 01</small><b>окно</b>панелька напротив,<br>одно горящее окно</div></div>
+        <div class="face back"><div><small>сцена 02</small><b>парадная</b>мраморная лестница,<br>тёплая лампочка</div></div>
+        <div class="face right"><div><small>сцена 03</small><b>двор</b>двор-колодец,<br>один фонарь</div></div>
+        <div class="face left"><div><small>сцена 04</small><b>набережная</b>гранит, вода,<br>огни на той стороне</div></div>
+        <div class="face top"><div><small>сцена 05</small><b>трамвай</b>последний вагон,<br>ты и отражение</div></div>
+        <div class="face bottom"><div><small>сцена 06</small><b>кухня</b>чай в два ночи,<br>свет над столом</div></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="rollbtn" id="roll">бросить кубик →</button>
+
+  <div class="card" id="card">
+    <div class="no" id="no"></div>
+    <p class="q" id="q"></p>
+    <p class="w" id="w"></p>
+  </div>
+
+<script>
+(function(){
+  var S = [
+    {t:"окно", q:"«сидел у окна, а за панелькой напротив одно окно горело до двух — и ты знал, что там тоже не спят»"},
+    {t:"парадная", q:"«заходил в парадную просто постоять: мрамор, эхо, лампочка на проводе — и никто не знает, что ты там делаешь»"},
+    {t:"двор", q:"«двор-колодец: свечение пяти окон наверху, мокрый асфальт внизу — и ты между ними, один»"},
+    {t:"набережная", q:"«стоял на граните, вода уносила всё лишнее, огни на той стороне были чужие — и это было правильно»"},
+    {t:"трамвай", q:"«последний трамвай: вы с отражением ехали вдвоём, и кондуктор не спрашивал билет у двоих»"},
+    {t:"кухня", q:"«чай в два ночи: свет только над столом, тишина такая, что слышно холодильник — и это был твой театр»"}
+  ];
+  // финальные повороты куба, чтобы грань смотрела на зрителя
+  var AIM = { 0:[-16,0], 1:[-16,180], 2:[-16,-90], 3:[-16,90], 4:[74,0], 5:[-106,0] };
+  var jump = document.getElementById('jump'), cube = document.getElementById('cube');
+  var btn = document.getElementById('roll'), card = document.getElementById('card');
+  var rolling = false, last = -1;
+
+  function show(i){
+    document.getElementById('no').textContent = 'СЦЕНА 0' + (i+1) + ' · ' + S[i].t.toUpperCase();
+    document.getElementById('q').textContent = S[i].q;
+    document.getElementById('w').innerHTML = 'вопрос на подумать: <b>что в этом вечере было только твоим</b> — и почему ты до сих пор это помнишь?';
+    card.classList.add('on');
+  }
+  btn.addEventListener('click', function(){
+    if (rolling) return;
+    rolling = true; btn.disabled = true;
+    card.classList.remove('on');
+    var i = Math.floor(Math.random() * 6);
+    if (i === last) i = (i + 3) % 6;
+    last = i;
+    var ax = AIM[i][0], ay = AIM[i][1];
+    var spinsX = 360 * (2 + Math.floor(Math.random()*2));
+    var spinsY = 360 * (1 + Math.floor(Math.random()*2));
+    cube.style.transition = 'transform 1.7s cubic-bezier(.3,.75,.3,1)';
+    cube.style.transform = 'rotateX(' + (ax - spinsX) + 'deg) rotateY(' + (ay - spinsY) + 'deg)';
+    jump.classList.remove('roll'); void jump.offsetWidth; jump.classList.add('roll');
+    if (navigator.vibrate) navigator.vibrate(24);
+    setTimeout(function(){
+      cube.style.transition = 'none';
+      cube.style.transform = 'rotateX(' + ax + 'deg) rotateY(' + ay + 'deg)';
+      rolling = false; btn.disabled = false; btn.textContent = 'бросить ещё раз →';
+      show(i);
+    }, 1750);
+  });
+})();
+</script>
+</body></html>

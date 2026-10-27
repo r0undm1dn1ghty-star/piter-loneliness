@@ -7,8 +7,8 @@
 <meta name="description" content="49% петербургских домохозяйств — из одного человека. Карта плотности по 18 районам. Данные Петростата и переписи 2021.">
 <style>
 :root{
-  --ink:#170b1e; --ink2:#1f0f29; --rose:#e85da8; --rose-dim:#a33f74;
-  --cloud:#f3d9e8; --mute:#8b7a95; --line:rgba(232,93,168,.22);
+  --ink:#1a0b2e; --ink2:#241536; --rose:#c77dff; --rose-dim:#b57edc;
+  --cloud:#d9c7ef; --mute:#8b7a95; --line:rgba(232,93,168,.22);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -65,7 +65,7 @@ svg#map{width:100%;display:block;overflow:visible;aspect-ratio:640/620;height:au
 @media(min-width:860px){.panel{grid-template-columns:1.1fr .9fr;gap:48px}}
 .scale{
   height:10px;border-radius:6px;margin:12px 0 8px;
-  background:linear-gradient(90deg,rgba(232,93,168,.13),rgba(232,93,168,.55),#e85da8);
+  background:linear-gradient(90deg,rgba(232,93,168,.13),rgba(232,93,168,.55),#c77dff);
 }
 .scale-row{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -118,7 +118,7 @@ tr.hl td.num{color:var(--rose);font-weight:600}
   justify-content:center;text-align:center;font-size:14.5px;line-height:1.35;color:var(--mute);
   background:var(--ink2);border:1px solid rgba(232,93,168,.14);backface-visibility:hidden;padding:0 14px;
   border-radius:2px}
-.facet.on{color:#fff;border-color:var(--rose);background:#2a1030;box-shadow:0 0 28px rgba(232,93,168,.25)}
+.facet.on{color:#fff;border-color:var(--rose);background:#2e1a47;box-shadow:0 0 28px rgba(232,93,168,.25)}
 .gostamp{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:10px;letter-spacing:.16em;
   color:var(--mute);font-variant-numeric:tabular-nums;text-transform:uppercase}
 .rollbtn{display:block;margin:0 auto;background:none;border:none;cursor:pointer;color:var(--cloud);
@@ -132,6 +132,59 @@ tr.hl td.num{color:var(--rose);font-weight:600}
 .scene .q{font-family:Georgia,serif;font-style:italic;font-size:clamp(17px,2.4vw,22px);line-height:1.45;margin-bottom:16px}
 .scene .where{font-size:13.5px;color:var(--mute);line-height:1.6}
 .scene .where b{color:var(--cloud)}
+
+  :root{ --deep:#1a0b2e; --shadow:#2e1a47; --lav:#b57edc; --glow:#8a2be2; --ink:#e8dff5; }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(138,43,226,.22), transparent 65%),
+      linear-gradient(178deg,#140a24 4%,var(--deep) 46%,var(--shadow) 100%);
+    color:var(--ink);font-family:-apple-system,'Segoe UI',Roboto,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:8vh 6vw 10vh}
+  .cap{font-size:11px;letter-spacing:.32em;color:var(--lav);text-transform:uppercase}
+  h2{font-size:clamp(24px,4.4vw,40px);font-weight:600;margin:14px 0 6px;letter-spacing:-.01em;text-align:center}
+  .sub{color:#9c8bbd;font-size:14.5px;margin-bottom:6vh;max-width:52ch;text-align:center;line-height:1.6}
+
+  .scene3d{width:230px;height:230px;perspective:1100px;margin:4vh 0 5vh}
+  .jump{width:100%;height:100%}
+  .jump.roll{animation:jump 1.7s cubic-bezier(.4,0,.7,1) both}
+  @keyframes jump{
+    0%{transform:translateY(0)}
+    28%{transform:translateY(-150px)}
+    50%{transform:translateY(4px)}
+    64%{transform:translateY(-52px)}
+    78%{transform:translateY(2px)}
+    88%{transform:translateY(-14px)}
+    100%{transform:translateY(0)}
+  }
+  .cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+    transform:rotateX(-16deg) rotateY(24deg);transition:transform 1.7s cubic-bezier(.3,.75,.3,1)}
+  .face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:16px;font-size:15px;line-height:1.35;color:var(--ink);
+    background:linear-gradient(160deg,rgba(46,26,71,.92),rgba(26,11,46,.94));
+    border:1px solid rgba(181,126,220,.4);border-radius:6px;
+    box-shadow:inset 0 0 40px rgba(138,43,226,.18)}
+  .face b{display:block;font-size:19px;color:#fff;margin-bottom:6px;letter-spacing:.02em}
+  .face small{display:block;font-size:10px;letter-spacing:.22em;color:var(--lav);text-transform:uppercase;margin-bottom:10px}
+  .front {transform:translateZ(115px)}
+  .back  {transform:rotateY(180deg) translateZ(115px)}
+  .right {transform:rotateY(90deg) translateZ(115px)}
+  .left  {transform:rotateY(-90deg) translateZ(115px)}
+  .top   {transform:rotateX(90deg) translateZ(115px)}
+  .bottom{transform:rotateX(-90deg) translateZ(115px)}
+
+  .rollbtn{background:none;border:none;cursor:pointer;color:var(--ink);font:inherit;font-size:17px;
+    padding:12px 6px 10px;border-bottom:2px solid var(--glow);transition:.2s}
+  .rollbtn:hover{color:var(--lav)}
+  .rollbtn:disabled{opacity:.4;cursor:default}
+
+  .card{max-width:560px;width:100%;margin-top:5vh;border:1px solid rgba(181,126,220,.22);border-radius:4px;
+    background:rgba(20,10,36,.6);padding:24px 24px 22px;opacity:0;transform:translateY(12px);transition:.5s}
+  .card.on{opacity:1;transform:none}
+  .card .no{font-size:10px;letter-spacing:.2em;color:var(--lav);text-transform:uppercase;margin-bottom:10px}
+  .card .q{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:19px;line-height:1.5;margin:0 0 12px}
+  .card .w{font-size:13px;color:#a493c2;line-height:1.65;margin:0}
+  .card .w b{color:var(--ink)}
+
 </style>
 </head>
 <body>
@@ -141,8 +194,8 @@ tr.hl td.num{color:var(--rose);font-weight:600}
     <div class="kicker">карта · санкт-петербург · 2026</div>
     <h1>почти каждый второй дом<br>за стеной от тебя —<br><em>на одного человека</em></h1>
     <div class="big">49%</div>
-    <p>столько домохозяйств петербурга состоит из одного человека. не метафора, не ощущение — перепись.</p>
-    <div class="src">источник: росстат, всероссийская перепись населения; петростат. москва — 52%, санкт-петербург — 49%. в начале 2000-х было около четверти.</div>
+    <p>я проверил цифры: 49% домохозяйств Петербурга — из одного человека. в 2002-м таких была примерно четверть. город вырос до рекорда — но рост остановлен минимум до 2036 года, и про одиночество официальные цифры молчат. поэтому я считаю сам — по переписи и по муниципальным округам.</p>
+    <div class="src">источник: росстат, перепись 2021; петростат на 01.01.2025. москва — 52%, санкт-петербург — 49%. в 2002-м — около четверти.</div>
   </header>
 
   <section class="mapsect">
@@ -173,12 +226,7 @@ tr.hl td.num{color:var(--rose);font-weight:600}
             <small>пушкинский район — самый молодой. в новостройках на юге город моложе, но и связей там меньше: все недавно приехали.</small>
           </div>
         </div>
-        <div class="honest">
-          <b>что здесь честно, а что — модель.</b> цифра 49% — замер: это данные переписи по городу.
-          районной разбивки одиночества в открытом доступе нет — ни у петростата, ни у вциом.
-          карта показывает <b>плотность и возраст</b> — условия, в которых одному живётся теснее или просторнее.
-          это не замер одиночества по районам и не претендует на него.
-        </div>
+        <div class="honest"><b>что здесь честно, а что — модель.</b> 49% и состав домохозяйств — перепись 2021. численность округов — Росстат на 01.01.2025. плотность — расчёт по площадям из открытых источников. районной статистики одиночества не существует: карта показывает условия, в которых одному живётся теснее или просторнее. РБК отдельно писал, что перепись могла завысить долю одиночек процедурой — я оставляю цифру с этой оговоркой. фото округов — атмосферные снимки по характеру застройки, не документальные.</div>
       </div>
 
       <div>
@@ -192,23 +240,187 @@ tr.hl td.num{color:var(--rose);font-weight:600}
   </section>
 
 
-  <section class="cubesect">
-    <div class="maphead">
-      <h2>а теперь — брось кубик</h2>
-      <span>12 сцен одинокого вечера &middot; одна выпадет</span>
+  <section class="mossec"><div class="maphead"><h2>одиночество измеряется не районом — округом</h2><span>111 внутригородских округов · население: Росстат 01.01.2025 · кликни округ — фото и цифра</span></div><div class="rrow" data-d="Адмиралтейский"><button class="rcap"><span class="rn">Адмиралтейский</span><span class="rm">6 округа · от 7 114 до 18 493 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Сенной округ"><div class="molhead"><span class="mo">Муниципальный округ Сенной округ</span><span class="den">18 493 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Коломна"><div class="molhead"><span class="mo">Муниципальный округ Коломна</span><span class="den">17 748 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Семёновский"><div class="molhead"><span class="mo">Муниципальный округ Семёновский</span><span class="den">13 319 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Адмиралтейский округ"><div class="molhead"><span class="mo">Муниципальный округ Адмиралтейский округ</span><span class="den">11 415 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_035.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Измайловское"><div class="molhead"><span class="mo">Муниципальный округ Измайловское</span><span class="den">10 270 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_041.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Екатерингофский"><div class="molhead"><span class="mo">Муниципальный округ Екатерингофский</span><span class="den">7 114 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_058.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Василеостровский"><button class="rcap"><span class="rn">Василеостровский</span><span class="rm">5 округа · от 8 487 до 20 376 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Морской"><div class="molhead"><span class="mo">Муниципальный округ Морской</span><span class="den">20 376 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Васильевский"><div class="molhead"><span class="mo">Муниципальный округ Васильевский</span><span class="den">13 252 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Гавань"><div class="molhead"><span class="mo">Муниципальный округ Гавань</span><span class="den">13 037 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Остров Декабристов"><div class="molhead"><span class="mo">Муниципальный округ Остров Декабристов</span><span class="den">9 815 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_044.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ N 7"><div class="molhead"><span class="mo">Муниципальный округ N 7</span><span class="den">8 487 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_051.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Выборгский"><button class="rcap"><span class="rn">Выборгский</span><span class="rm">7 округа · от 178 до 16 286 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Шувалово-Озерки"><div class="molhead"><span class="mo">Муниципальный округ Шувалово-Озерки</span><span class="den">16 286 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Сосновское"><div class="molhead"><span class="mo">Муниципальный округ Сосновское</span><span class="den">10 543 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_038.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Сергиевское"><div class="molhead"><span class="mo">Муниципальный округ Сергиевское</span><span class="den">9 853 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_043.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Сампсониевское"><div class="molhead"><span class="mo">Муниципальный округ Сампсониевское</span><span class="den">8 093 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_056.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Светлановское"><div class="molhead"><span class="mo">Муниципальный округ Светлановское</span><span class="den">4 106 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_070.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Парголово"><div class="molhead"><span class="mo">Поселок Парголово</span><span class="den">2 756 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_077.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Левашово"><div class="molhead"><span class="mo">Поселок Левашово</span><span class="den">178 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_101.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Калининский"><button class="rcap"><span class="rn">Калининский</span><span class="rm">7 округа · от 7 101 до 22 430 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Северный"><div class="molhead"><span class="mo">Муниципальный округ Северный</span><span class="den">22 430 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ N 21"><div class="molhead"><span class="mo">Муниципальный округ N 21</span><span class="den">19 271 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Прометей"><div class="molhead"><span class="mo">Муниципальный округ Прометей</span><span class="den">18 945 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Академическое"><div class="molhead"><span class="mo">Муниципальный округ Академическое</span><span class="den">16 584 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Гражданка"><div class="molhead"><span class="mo">Муниципальный округ Гражданка</span><span class="den">16 322 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Пискаревка"><div class="molhead"><span class="mo">Муниципальный округ Пискаревка</span><span class="den">9 055 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_048.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Финляндский округ"><div class="molhead"><span class="mo">Муниципальный округ Финляндский округ</span><span class="den">7 101 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_059.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Кировский"><button class="rcap"><span class="rn">Кировский</span><span class="rm">7 округа · от 1 300 до 18 759 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Красненькая речка"><div class="molhead"><span class="mo">Муниципальный округ Красненькая речка</span><span class="den">18 759 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Дачное"><div class="molhead"><span class="mo">Муниципальный округ Дачное</span><span class="den">16 281 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Ульянка"><div class="molhead"><span class="mo">Муниципальный округ Ульянка</span><span class="den">15 752 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Княжево"><div class="molhead"><span class="mo">Муниципальный округ Княжево</span><span class="den">13 058 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Нарвский округ"><div class="molhead"><span class="mo">Муниципальный округ Нарвский округ</span><span class="den">4 368 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_068.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Автово"><div class="molhead"><span class="mo">Муниципальный округ Автово</span><span class="den">3 541 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_074.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Морские ворота"><div class="molhead"><span class="mo">Муниципальный округ Морские ворота</span><span class="den">1 300 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_083.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Колпинский"><button class="rcap"><span class="rn">Колпинский</span><span class="rm">6 округа · от 124 до 24 636 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Поселок Металлострой"><div class="molhead"><span class="mo">Поселок Металлострой</span><span class="den">24 636 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Колпино"><div class="molhead"><span class="mo">г Колпино</span><span class="den">2 560 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_079.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Понтонный"><div class="molhead"><span class="mo">Поселок Понтонный</span><span class="den">1 075 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_086.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Усть-Ижора"><div class="molhead"><span class="mo">Поселок Усть-Ижора</span><span class="den">631 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_093.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Саперный"><div class="molhead"><span class="mo">Поселок Саперный</span><span class="den">433 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_098.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Петро-Славянка"><div class="molhead"><span class="mo">Поселок Петро-Славянка</span><span class="den">124 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_104.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Красногвардейский"><button class="rcap"><span class="rn">Красногвардейский</span><span class="rm">5 округа · от 3 590 до 18 065 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Пороховые"><div class="molhead"><span class="mo">Муниципальный округ Пороховые</span><span class="den">18 065 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Большая Охта"><div class="molhead"><span class="mo">Муниципальный округ Большая Охта</span><span class="den">10 030 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_042.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Малая Охта"><div class="molhead"><span class="mo">Муниципальный округ Малая Охта</span><span class="den">8 173 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_055.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Полюстрово"><div class="molhead"><span class="mo">Муниципальный округ Полюстрово</span><span class="den">3 679 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_072.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Ржевка"><div class="molhead"><span class="mo">Муниципальный округ Ржевка</span><span class="den">3 590 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_073.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Красносельский"><button class="rcap"><span class="rn">Красносельский</span><span class="rm">7 округа · от 885 до 20 517 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Юго-Запад"><div class="molhead"><span class="mo">Муниципальный округ Юго-Запад</span><span class="den">20 517 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Южно-Приморский"><div class="molhead"><span class="mo">Муниципальный округ Южно-Приморский</span><span class="den">12 657 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Урицк"><div class="molhead"><span class="mo">Муниципальный округ Урицк</span><span class="den">10 392 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_040.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Сосновая Поляна"><div class="molhead"><span class="mo">Муниципальный округ Сосновая Поляна</span><span class="den">8 666 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_050.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Красное Село"><div class="molhead"><span class="mo">г Красное Село</span><span class="den">3 172 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_076.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Константиновское"><div class="molhead"><span class="mo">Муниципальный округ Константиновское</span><span class="den">2 692 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_078.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Горелово"><div class="molhead"><span class="mo">Муниципальный округ Горелово</span><span class="den">885 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_088.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Кронштадтский"><button class="rcap"><span class="rn">Кронштадтский</span><span class="rm">1 округа · от 2 308 до 2 308 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="г Кронштадт"><div class="molhead"><span class="mo">г Кронштадт</span><span class="den">2 308 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_080.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Курортный"><button class="rcap"><span class="rn">Курортный</span><span class="rm">11 округа · от 31 до 567 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Поселок Песочный"><div class="molhead"><span class="mo">Поселок Песочный</span><span class="den">567 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_094.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Сестрорецк"><div class="molhead"><span class="mo">г Сестрорецк</span><span class="den">524 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_095.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Зеленогорск"><div class="molhead"><span class="mo">г Зеленогорск</span><span class="den">389 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_099.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Репино"><div class="molhead"><span class="mo">Поселок Репино</span><span class="den">192 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_100.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Солнечное"><div class="molhead"><span class="mo">Поселок Солнечное</span><span class="den">132 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_102.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Молодежное"><div class="molhead"><span class="mo">Поселок Молодежное</span><span class="den">127 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_103.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Белоостров"><div class="molhead"><span class="mo">Поселок Белоостров</span><span class="den">98 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_105.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Смолячково"><div class="molhead"><span class="mo">Поселок Смолячково</span><span class="den">90 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_106.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Комарово"><div class="molhead"><span class="mo">Поселок Комарово</span><span class="den">48 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_107.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Ушково"><div class="molhead"><span class="mo">Поселок Ушково</span><span class="den">32 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_108.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Серово"><div class="molhead"><span class="mo">Поселок Серово</span><span class="den">31 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_109.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Московский"><button class="rcap"><span class="rn">Московский</span><span class="rm">5 округа · от 1 273 до 12 449 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Новоизмайловское"><div class="molhead"><span class="mo">Муниципальный округ Новоизмайловское</span><span class="den">12 449 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_034.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Звездное"><div class="molhead"><span class="mo">Муниципальный округ Звездное</span><span class="den">10 598 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_037.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Гагаринское"><div class="molhead"><span class="mo">Муниципальный округ Гагаринское</span><span class="den">8 233 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_053.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Московская Застава"><div class="molhead"><span class="mo">Муниципальный округ Московская Застава</span><span class="den">4 497 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_067.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Пулковский меридиан"><div class="molhead"><span class="mo">Муниципальный округ Пулковский меридиан</span><span class="den">1 273 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_084.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Невский"><button class="rcap"><span class="rn">Невский</span><span class="rm">9 округа · от 4 000 до 25 101 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Оккервиль"><div class="molhead"><span class="mo">Муниципальный округ Оккервиль</span><span class="den">25 101 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Невский округ"><div class="molhead"><span class="mo">Муниципальный округ Невский округ</span><span class="den">15 896 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Правобережный"><div class="molhead"><span class="mo">Муниципальный округ Правобережный</span><span class="den">13 972 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ N 54"><div class="molhead"><span class="mo">Муниципальный округ N 54</span><span class="den">11 183 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_036.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Обуховский"><div class="molhead"><span class="mo">Муниципальный округ Обуховский</span><span class="den">10 446 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_039.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Народный"><div class="molhead"><span class="mo">Муниципальный округ Народный</span><span class="den">8 236 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_052.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Рыбацкое"><div class="molhead"><span class="mo">Муниципальный округ Рыбацкое</span><span class="den">7 788 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_057.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Ивановский"><div class="molhead"><span class="mo">Муниципальный округ Ивановский</span><span class="den">5 012 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_064.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Невская застава"><div class="molhead"><span class="mo">Муниципальный округ Невская застава</span><span class="den">4 000 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_071.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Петроградский"><button class="rcap"><span class="rn">Петроградский</span><span class="rm">6 округа · от 3 195 до 14 765 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Введенский"><div class="molhead"><span class="mo">Муниципальный округ Введенский</span><span class="den">14 765 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Кронверкское"><div class="molhead"><span class="mo">Муниципальный округ Кронверкское</span><span class="den">9 702 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_046.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Посадский"><div class="molhead"><span class="mo">Муниципальный округ Посадский</span><span class="den">9 284 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_047.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Аптекарский Остров"><div class="molhead"><span class="mo">Муниципальный округ Аптекарский Остров</span><span class="den">8 207 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_054.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ округ Петровский"><div class="molhead"><span class="mo">Муниципальный округ округ Петровский</span><span class="den">6 141 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_062.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Чкаловское"><div class="molhead"><span class="mo">Муниципальный округ Чкаловское</span><span class="den">3 195 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_075.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Петродворцовый"><button class="rcap"><span class="rn">Петродворцовый</span><span class="rm">3 округа · от 754 до 1 693 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="г Петергоф"><div class="molhead"><span class="mo">г Петергоф</span><span class="den">1 693 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_081.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Ломоносов"><div class="molhead"><span class="mo">г Ломоносов</span><span class="den">938 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_087.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="п Стрельна"><div class="molhead"><span class="mo">п Стрельна</span><span class="den">754 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_090.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Приморский"><button class="rcap"><span class="rn">Приморский</span><span class="rm">8 округа · от 515 до 17 520 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Комендантский аэродром"><div class="molhead"><span class="mo">Муниципальный округ Комендантский аэродром</span><span class="den">17 520 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ N 65"><div class="molhead"><span class="mo">Муниципальный округ N 65</span><span class="den">17 416 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Озеро Долгое"><div class="molhead"><span class="mo">Муниципальный округ Озеро Долгое</span><span class="den">16 831 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Юнтолово"><div class="molhead"><span class="mo">Муниципальный округ Юнтолово</span><span class="den">9 775 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_045.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Ланское"><div class="molhead"><span class="mo">Муниципальный округ Ланское</span><span class="den">9 041 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_049.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Коломяги"><div class="molhead"><span class="mo">Муниципальный округ Коломяги</span><span class="den">4 623 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_066.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Поселок Лисий Нос"><div class="molhead"><span class="mo">Поселок Лисий Нос</span><span class="den">773 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_089.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Лахта-Ольгино"><div class="molhead"><span class="mo">Муниципальный округ Лахта-Ольгино</span><span class="den">515 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_096.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Пушкинский"><button class="rcap"><span class="rn">Пушкинский</span><span class="rm">5 округа · от 464 до 1 359 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="п Шушары"><div class="molhead"><span class="mo">п Шушары</span><span class="den">1 359 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_082.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Пушкин"><div class="molhead"><span class="mo">г Пушкин</span><span class="den">1 220 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_085.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="п Александровская"><div class="molhead"><span class="mo">п Александровская</span><span class="den">675 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_091.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="п Тярлево"><div class="molhead"><span class="mo">п Тярлево</span><span class="den">674 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_092.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="г Павловск"><div class="molhead"><span class="mo">г Павловск</span><span class="den">464 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_097.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Фрунзенский"><button class="rcap"><span class="rn">Фрунзенский</span><span class="rm">5 округа · от 4 882 до 21 867 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Георгиевский"><div class="molhead"><span class="mo">Муниципальный округ Георгиевский</span><span class="den">21 867 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Купчино"><div class="molhead"><span class="mo">Муниципальный округ Купчино</span><span class="den">19 785 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Балканский"><div class="molhead"><span class="mo">Муниципальный округ Балканский</span><span class="den">17 359 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Александровский"><div class="molhead"><span class="mo">Муниципальный округ Александровский</span><span class="den">6 248 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_061.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Волковское"><div class="molhead"><span class="mo">Муниципальный округ Волковское</span><span class="den">4 882 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_065.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div>
+<div class="rrow" data-d="Центральный"><button class="rcap"><span class="rn">Центральный</span><span class="rm">6 округа · от 4 165 до 20 478 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-name="Муниципальный округ Владимирский округ"><div class="molhead"><span class="mo">Муниципальный округ Владимирский округ</span><span class="den">20 478 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Литейный округ"><div class="molhead"><span class="mo">Муниципальный округ Литейный округ</span><span class="den">16 858 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Смольнинское"><div class="molhead"><span class="mo">Муниципальный округ Смольнинское</span><span class="den">13 519 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ N 78"><div class="molhead"><span class="mo">Муниципальный округ N 78</span><span class="den">6 839 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_060.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Лиговка-Ямская"><div class="molhead"><span class="mo">Муниципальный округ Лиговка-Ямская</span><span class="den">5 916 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_063.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div>
+<div class="mol" data-name="Муниципальный округ Дворцовый округ"><div class="molhead"><span class="mo">Муниципальный округ Дворцовый округ</span><span class="den">4 165 чел/км²</span><span class="chev">▸</span></div><div class="molbody"><img loading="lazy" src="mo/mo_069.jpg" alt=""><p class="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался?</p></div></div></div></div></section>
+  <section class="cubesect"><div class="maphead"><h2>брось кубик — вспомни вечер</h2><span>6 питерских сцен · одна выпадет · привяжи к своему округу</span></div>
+  <div class="cap">петербургское одиночество · механика</div>
+  <h2>брось кубик — вспомни вечер</h2>
+  <p class="sub">шесть питерских сцен. одна выпадет — и вытянется воспоминание, которое ты давно не крутил.</p>
+
+  <div class="scene3d">
+    <div class="jump" id="jump">
+      <div class="cube" id="cube">
+        <div class="face front"><div><small>сцена 01</small><b>окно</b>панелька напротив,<br>одно горящее окно</div></div>
+        <div class="face back"><div><small>сцена 02</small><b>парадная</b>мраморная лестница,<br>тёплая лампочка</div></div>
+        <div class="face right"><div><small>сцена 03</small><b>двор</b>двор-колодец,<br>один фонарь</div></div>
+        <div class="face left"><div><small>сцена 04</small><b>набережная</b>гранит, вода,<br>огни на той стороне</div></div>
+        <div class="face top"><div><small>сцена 05</small><b>трамвай</b>последний вагон,<br>ты и отражение</div></div>
+        <div class="face bottom"><div><small>сцена 06</small><b>кухня</b>чай в два ночи,<br>свет над столом</div></div>
+      </div>
     </div>
-    <p class="sub">кликни район на карте выше — и выпавшая сцена привяжется к нему. без выбора сцена просто выпадет.</p>
-    <div class="stage" id="stage">
-      <div class="drum" id="drum"></div>
-      <div class="gostamp" id="stamp">готов к броску</div>
-    </div>
-    <button class="rollbtn" id="roll">бросить кубик &rarr;</button>
-    <div class="scene" id="scene">
-      <div class="sc-no" id="scNo"></div>
-      <p class="q" id="scQ"></p>
-      <p class="where" id="scW"></p>
-    </div>
-  </section>
+  </div>
+
+  <button class="rollbtn" id="roll">бросить кубик →</button>
+
+  <div class="card" id="card">
+    <div class="no" id="no"></div>
+    <p class="q" id="q"></p>
+    <p class="w" id="w"></p>
+  </div>
+
+<script>
+(function(){
+  var S = [
+    {t:"окно", q:"«сидел у окна, а за панелькой напротив одно окно горело до двух — и ты знал, что там тоже не спят»"},
+    {t:"парадная", q:"«заходил в парадную просто постоять: мрамор, эхо, лампочка на проводе — и никто не знает, что ты там делаешь»"},
+    {t:"двор", q:"«двор-колодец: свечение пяти окон наверху, мокрый асфальт внизу — и ты между ними, один»"},
+    {t:"набережная", q:"«стоял на граните, вода уносила всё лишнее, огни на той стороне были чужие — и это было правильно»"},
+    {t:"трамвай", q:"«последний трамвай: вы с отражением ехали вдвоём, и кондуктор не спрашивал билет у двоих»"},
+    {t:"кухня", q:"«чай в два ночи: свет только над столом, тишина такая, что слышно холодильник — и это был твой театр»"}
+  ];
+  // финальные повороты куба, чтобы грань смотрела на зрителя
+  var AIM = { 0:[-16,0], 1:[-16,180], 2:[-16,-90], 3:[-16,90], 4:[74,0], 5:[-106,0] };
+  var jump = document.getElementById('jump'), cube = document.getElementById('cube');
+  var btn = document.getElementById('roll'), card = document.getElementById('card');
+  var rolling = false, last = -1;
+
+  function show(i){
+    document.getElementById('no').textContent = 'СЦЕНА 0' + (i+1) + ' · ' + S[i].t.toUpperCase();
+    document.getElementById('q').textContent = S[i].q;
+    document.getElementById('w').innerHTML = 'вопрос на подумать: <b>что в этом вечере было только твоим</b> — и почему ты до сих пор это помнишь?';
+    card.classList.add('on');
+  }
+  btn.addEventListener('click', function(){
+    if (rolling) return;
+    rolling = true; btn.disabled = true;
+    card.classList.remove('on');
+    var i = Math.floor(Math.random() * 6);
+    if (i === last) i = (i + 3) % 6;
+    last = i;
+    var ax = AIM[i][0], ay = AIM[i][1];
+    var spinsX = 360 * (2 + Math.floor(Math.random()*2));
+    var spinsY = 360 * (1 + Math.floor(Math.random()*2));
+    cube.style.transition = 'transform 1.7s cubic-bezier(.3,.75,.3,1)';
+    cube.style.transform = 'rotateX(' + (ax - spinsX) + 'deg) rotateY(' + (ay - spinsY) + 'deg)';
+    jump.classList.remove('roll'); void jump.offsetWidth; jump.classList.add('roll');
+    if (navigator.vibrate) navigator.vibrate(24);
+    setTimeout(function(){
+      cube.style.transition = 'none';
+      cube.style.transform = 'rotateX(' + ax + 'deg) rotateY(' + ay + 'deg)';
+      rolling = false; btn.disabled = false; btn.textContent = 'бросить ещё раз →';
+      show(i);
+    }, 1750);
+  });
+})();
+</script>
+</section>
 
   <section class="outro">
     <q>город, где половина живёт одна, но никто об этом не говорит — потому что признаться в одиночестве до сих пор страшнее, чем его пережить.</q>
@@ -439,6 +651,51 @@ const GEO = {"type":"FeatureCollection","features":[{"type":"Feature","propertie
   }
 })();
 </script>
+
+
+(function(){
+  var S = [
+    {t:"окно", q:"«сидел у окна, а за панелькой напротив одно окно горело до двух — и ты знал, что там тоже не спят»"},
+    {t:"парадная", q:"«заходил в парадную просто постоять: мрамор, эхо, лампочка на проводе — и никто не знает, что ты там делаешь»"},
+    {t:"двор", q:"«двор-колодец: свечение пяти окон наверху, мокрый асфальт внизу — и ты между ними, один»"},
+    {t:"набережная", q:"«стоял на граните, вода уносила всё лишнее, огни на той стороне были чужие — и это было правильно»"},
+    {t:"трамвай", q:"«последний трамвай: вы с отражением ехали вдвоём, и кондуктор не спрашивал билет у двоих»"},
+    {t:"кухня", q:"«чай в два ночи: свет только над столом, тишина такая, что слышно холодильник — и это был твой театр»"}
+  ];
+  // финальные повороты куба, чтобы грань смотрела на зрителя
+  var AIM = { 0:[-16,0], 1:[-16,180], 2:[-16,-90], 3:[-16,90], 4:[74,0], 5:[-106,0] };
+  var jump = document.getElementById('jump'), cube = document.getElementById('cube');
+  var btn = document.getElementById('roll'), card = document.getElementById('card');
+  var rolling = false, last = -1;
+
+  function show(i){
+    document.getElementById('no').textContent = 'СЦЕНА 0' + (i+1) + ' · ' + S[i].t.toUpperCase();
+    document.getElementById('q').textContent = S[i].q;
+    document.getElementById('w').innerHTML = 'вопрос на подумать: <b>что в этом вечере было только твоим</b> — и почему ты до сих пор это помнишь?';
+    card.classList.add('on');
+  }
+  btn.addEventListener('click', function(){
+    if (rolling) return;
+    rolling = true; btn.disabled = true;
+    card.classList.remove('on');
+    var i = Math.floor(Math.random() * 6);
+    if (i === last) i = (i + 3) % 6;
+    last = i;
+    var ax = AIM[i][0], ay = AIM[i][1];
+    var spinsX = 360 * (2 + Math.floor(Math.random()*2));
+    var spinsY = 360 * (1 + Math.floor(Math.random()*2));
+    cube.style.transition = 'transform 1.7s cubic-bezier(.3,.75,.3,1)';
+    cube.style.transform = 'rotateX(' + (ax - spinsX) + 'deg) rotateY(' + (ay - spinsY) + 'deg)';
+    jump.classList.remove('roll'); void jump.offsetWidth; jump.classList.add('roll');
+    if (navigator.vibrate) navigator.vibrate(24);
+    setTimeout(function(){
+      cube.style.transition = 'none';
+      cube.style.transform = 'rotateX(' + ax + 'deg) rotateY(' + ay + 'deg)';
+      rolling = false; btn.disabled = false; btn.textContent = 'бросить ещё раз →';
+      show(i);
+    }, 1750);
+  });
+})();
 
 </body>
 </html>

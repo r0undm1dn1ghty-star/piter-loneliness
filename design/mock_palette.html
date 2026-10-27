@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>питерская палитра — мокап</title>
+<style>
+  :root{
+    --deep:#1a0b2e; --shadow:#2e1a47; --glow:#8a2be2; --lav:#b57edc;
+    --fog:rgba(75,0,130,.35); --paper:#efe9f6; --ink:#e8dff5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--deep);color:var(--ink);
+    font-family:-apple-system,'Segoe UI',Roboto,sans-serif}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.5;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E")}
+  /* ---------- hero: растворение ---------- */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 115%, rgba(138,43,226,.34), transparent 62%),
+      radial-gradient(ellipse 60% 44% at 74% 8%, rgba(181,126,220,.14), transparent 70%),
+      linear-gradient(178deg, #140a24 6%, var(--deep) 44%, var(--shadow) 100%)}
+  .hero .fog{position:absolute;inset:-20%;
+    background:
+      radial-gradient(ellipse 42% 26% at 30% 42%, rgba(181,126,220,.13), transparent 70%),
+      radial-gradient(ellipse 52% 30% at 72% 64%, rgba(138,43,226,.16), transparent 72%);
+    filter:blur(30px);animation:drift 16s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translateX(-2%) translateY(0)}to{transform:translateX(2%) translateY(-2%)}}
+  .hero .wrap{position:relative;z-index:3;max-width:900px;margin:0 auto;padding:12vh 8vw 16vh}
+  .kicker{font-size:11px;letter-spacing:.34em;color:var(--lav);text-transform:uppercase;margin-bottom:34px}
+  h1{font-size:clamp(34px,6.6vw,74px);line-height:1.08;font-weight:600;letter-spacing:-.015em;margin:0 0 30px;max-width:15ch}
+  h1 em{font-style:normal;color:var(--lav);text-shadow:0 0 34px rgba(138,43,226,.55)}
+  .big{font-size:clamp(90px,20vw,230px);line-height:.9;font-weight:700;letter-spacing:-.04em;
+    color:transparent;-webkit-text-stroke:1.5px rgba(181,126,220,.55);
+    text-shadow:0 0 90px rgba(138,43,226,.35);margin:8px 0 26px}
+  .lead{font-size:clamp(16px,2.1vw,20px);line-height:1.7;color:#b9a8d4;max-width:46ch;margin:0}
+  .lead b{color:var(--ink);font-weight:600}
+  .lead .num{color:var(--lav)}
+  .scroll{margin-top:9vh;font-size:12px;letter-spacing:.2em;color:#8d7ab0}
+  /* ---------- карточка МО ---------- */
+  .mos{padding:12vh 8vw;background:linear-gradient(180deg,var(--shadow),#160a26 70%,var(--deep))}
+  .mos .cap{font-size:11px;letter-spacing:.3em;color:var(--lav);text-transform:uppercase;margin-bottom:14px}
+  .mos h2{font-size:clamp(26px,4.4vw,44px);font-weight:600;margin:0 0 8px;letter-spacing:-.01em}
+  .mos .where{color:#9c8bbd;font-size:15px;margin-bottom:40px}
+  .grid{display:flex;gap:26px;flex-wrap:wrap}
+  .card{flex:1 1 380px;max-width:560px;border:1px solid rgba(181,126,220,.22);border-radius:4px;overflow:hidden;
+    background:rgba(20,10,36,.6);backdrop-filter:blur(6px)}
+  .card .ph{position:relative;height:300px}
+  .card .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) contrast(1.05) hue-rotate(8deg) brightness(.92)}
+  .card .ph::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(26,11,46,.15),rgba(26,11,46,.88) 92%),
+    radial-gradient(ellipse 60% 50% at 70% 12%, rgba(138,43,226,.28), transparent 70%)}
+  .card .den{position:absolute;left:20px;bottom:14px;z-index:2;font-size:clamp(30px,4vw,44px);font-weight:700;
+    color:#fff;text-shadow:0 0 30px rgba(138,43,226,.8)}
+  .card .den small{display:block;font-size:11px;font-weight:400;letter-spacing:.18em;color:var(--lav);text-transform:uppercase;margin-bottom:2px}
+  .card .body{padding:22px 22px 26px}
+  .card .q{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:18px;line-height:1.5;margin:0 0 14px}
+  .card .fact{font-size:13px;line-height:1.65;color:#a493c2;margin:0}
+  .card .fact b{color:var(--ink)}
+  .tag{display:inline-block;font-size:10px;letter-spacing:.16em;color:var(--lav);border:1px solid rgba(181,126,220,.4);
+    padding:4px 10px;border-radius:2px;margin-bottom:14px;text-transform:uppercase}
+</style></head>
+<body>
+<div class="grain"></div>
+
+<section class="hero">
+  <div class="fog"></div>
+  <div class="wrap">
+    <div class="kicker">петербургское одиночество · карта · 2026</div>
+    <h1>почти каждый второй дом<br>за стеной от тебя — <em>на одного</em></h1>
+    <div class="big">49%</div>
+    <p class="lead">я проверил цифры — это не ощущение, а <b>перепись</b>: столько петербургских домохозяйств состоит из одного человека. в начале двухтысячных так жила примерно <b>каждая четвёртая семья</b>. сейчас — <span class="num">каждая вторая</span>.</p>
+    <div class="scroll">↓ крути — город расскажет</div>
+  </div>
+</section>
+
+<section class="mos">
+  <div class="cap">твой округ</div>
+  <h2>муниципальный округ №54</h2>
+  <p class="where">Невский район · 17 342 человека на квадратный километр — самый тесный округ города</p>
+  <div class="grid">
+    <div class="card">
+      <div class="ph">
+        <img src="../рв-интерактив/scenes_spb/19-dvor.jpg" alt="">
+        <div class="den"><small>плотность</small>17 342 чел/км²</div>
+      </div>
+      <div class="body">
+        <span class="tag">сцена · двор</span>
+        <p class="q">«двор, где горел один фонарь, и твои шаги были единственным звуком»</p>
+        <p class="fact">вспомни свой вечер здесь: <b>какое окно напротив горело</b>, когда ты возвращался? кто его зажигал — и почему ты ни разу не узнал?</p>
+      </div>
+    </div>
+  </div>
+</section>
+</body></html>
