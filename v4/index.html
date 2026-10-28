@@ -187,6 +187,62 @@ tr.hl td.num{color:var(--rose);font-weight:600}
 
 </style>
 <style>.victorfoto{position:fixed;inset:0;z-index:0;pointer-events:none;background:url("depression.jpg") center/cover no-repeat;opacity:.14;filter:blur(2px) saturate(.8)}.victorfoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,11,46,.86),rgba(26,11,46,.94))}body>*:not(.victorfoto){position:relative;z-index:1}</style>
+<style>
+  #dpanel{position:fixed;top:0;right:0;bottom:0;width:min(440px,94vw);z-index:80;
+    background:linear-gradient(180deg,#241536,#160a26);border-left:1px solid rgba(181,126,220,.3);
+    transform:translateX(102%);transition:transform .45s cubic-bezier(.3,.8,.3,1);
+    overflow-y:auto;padding:28px 24px 40px}
+  #dpanel.on{transform:none}
+  #dp-close{position:absolute;top:14px;right:14px;background:none;border:none;color:#9c8bbd;
+    font-size:22px;cursor:pointer}
+  #dp-name{font-size:30px;font-weight:600;color:#efe9f6;margin:6px 0 2px}
+  #dp-sub{color:#9c8bbd;font-size:13px;margin-bottom:22px}
+  #dp-dens{font-size:46px;font-weight:700;color:var(--lav,#b57edc);font-variant-numeric:tabular-nums}
+  #dp-dens small{font-size:13px;font-weight:400;color:#9c8bbd;display:block;letter-spacing:.14em;margin-top:2px}
+  #dp-q{font-family:Georgia,serif;font-style:italic;font-size:17px;color:#cfc2e2;line-height:1.55;margin:22px 0 26px}
+  .dp-h{font-size:11px;letter-spacing:.2em;color:#9c8bbd;text-transform:uppercase;margin:22px 0 10px}
+  .mol{display:flex;justify-content:space-between;gap:14px;padding:10px 2px;cursor:pointer;
+    border-bottom:1px solid rgba(181,126,220,.14);transition:background .15s}
+  .mol:hover{background:rgba(181,126,220,.08)}
+  .mol .n{color:#efe9f6;font-size:14.5px}
+  .mol .d{color:#b57edc;font-variant-numeric:tabular-nums;font-size:14px}
+  .mol img{width:100%;max-height:220px;object-fit:cover;border-radius:3px;margin:10px 0;
+    filter:saturate(.75) contrast(1.04);display:none}
+  .mol.open img{display:block}
+  .mol.open{padding-bottom:14px}
+  .mol .q{display:none;font-family:Georgia,serif;font-style:italic;font-size:14.5px;
+    color:#cfc2e2;line-height:1.5;margin:8px 0 0}
+  .mol.open .q{display:block}
+  #dp-hint{font-size:12px;color:#8d7ab0;margin-top:24px;line-height:1.6}
+</style>
+<style>
+  #dpanel{position:fixed;top:0;right:0;bottom:0;width:min(440px,94vw);z-index:80;
+    background:linear-gradient(180deg,#241536,#160a26);border-left:1px solid rgba(181,126,220,.3);
+    transform:translateX(102%);transition:transform .45s cubic-bezier(.3,.8,.3,1);
+    overflow-y:auto;padding:28px 24px 40px}
+  #dpanel.on{transform:none}
+  #dp-close{position:absolute;top:14px;right:14px;background:none;border:none;color:#9c8bbd;
+    font-size:22px;cursor:pointer}
+  #dp-name{font-size:30px;font-weight:600;color:#efe9f6;margin:6px 0 2px}
+  #dp-sub{color:#9c8bbd;font-size:13px;margin-bottom:22px}
+  #dp-dens{font-size:46px;font-weight:700;color:var(--lav,#b57edc);font-variant-numeric:tabular-nums}
+  #dp-dens small{font-size:13px;font-weight:400;color:#9c8bbd;display:block;letter-spacing:.14em;margin-top:2px}
+  #dp-q{font-family:Georgia,serif;font-style:italic;font-size:17px;color:#cfc2e2;line-height:1.55;margin:22px 0 26px}
+  .dp-h{font-size:11px;letter-spacing:.2em;color:#9c8bbd;text-transform:uppercase;margin:22px 0 10px}
+  .mol{display:flex;justify-content:space-between;gap:14px;padding:10px 2px;cursor:pointer;
+    border-bottom:1px solid rgba(181,126,220,.14);transition:background .15s}
+  .mol:hover{background:rgba(181,126,220,.08)}
+  .mol .n{color:#efe9f6;font-size:14.5px}
+  .mol .d{color:#b57edc;font-variant-numeric:tabular-nums;font-size:14px}
+  .mol img{width:100%;max-height:220px;object-fit:cover;border-radius:3px;margin:10px 0;
+    filter:saturate(.75) contrast(1.04);display:none}
+  .mol.open img{display:block}
+  .mol.open{padding-bottom:14px}
+  .mol .q{display:none;font-family:Georgia,serif;font-style:italic;font-size:14.5px;
+    color:#cfc2e2;line-height:1.5;margin:8px 0 0}
+  .mol.open .q{display:block}
+  #dp-hint{font-size:12px;color:#8d7ab0;margin-top:24px;line-height:1.6}
+</style>
 </head>
 <body><div class="victorfoto"></div>
 <div class="wrap">
@@ -196,6 +252,8 @@ tr.hl td.num{color:var(--rose);font-weight:600}
     <h1>почти каждый второй дом<br>за стеной от тебя —<br><em>на одного человека</em></h1>
     <div class="big">49%</div>
     <p>я проверил цифры: 49% домохозяйств Петербурга — из одного человека. в 2002-м таких была примерно четверть. город вырос до рекорда — но рост остановлен минимум до 2036 года, и про одиночество официальные цифры молчат. поэтому я считаю сам — по переписи и по муниципальным округам.</p>
+    <div class="src" style="color:#b57edc;opacity:1">кликни район на карте ниже — откроются его округа, цифры и вопрос про твой вечер</div>
+    <div class="src" style="color:#b57edc;opacity:1">кликни район на карте ниже — откроются его округа, цифры и вопрос про твой вечер</div>
     <div class="src">источник: росстат, перепись 2021; петростат на 01.01.2025. москва — 52%, санкт-петербург — 49%. в 2002-м — около четверти.</div>
   </header>
 
@@ -241,43 +299,7 @@ tr.hl td.num{color:var(--rose);font-weight:600}
   </section>
 
 
-  <section class="mossec">
-  <div class="maphead"><h2>одиночество измеряется не районом — округом</h2>
-  <span>111 округов · население: Росстат 01.01.2025 · клик по округу — реальные фото места из свободного архива</span></div>
-  <div class="dgrid" id="dgrid"><button class="dbtn" data-d="Адмиралтейский">Адмиралтейский<small>6 округа</small></button>
-<button class="dbtn" data-d="Василеостровский">Василеостровский<small>5 округа</small></button>
-<button class="dbtn" data-d="Выборгский">Выборгский<small>7 округа</small></button>
-<button class="dbtn" data-d="Калининский">Калининский<small>7 округа</small></button>
-<button class="dbtn" data-d="Кировский">Кировский<small>7 округа</small></button>
-<button class="dbtn" data-d="Колпинский">Колпинский<small>6 округа</small></button>
-<button class="dbtn" data-d="Красногвардейский">Красногвардейский<small>5 округа</small></button>
-<button class="dbtn" data-d="Красносельский">Красносельский<small>7 округа</small></button>
-<button class="dbtn" data-d="Кронштадтский">Кронштадтский<small>1 округа</small></button>
-<button class="dbtn" data-d="Курортный">Курортный<small>11 округа</small></button>
-<button class="dbtn" data-d="Московский">Московский<small>5 округа</small></button>
-<button class="dbtn" data-d="Невский">Невский<small>9 округа</small></button>
-<button class="dbtn" data-d="Петроградский">Петроградский<small>6 округа</small></button>
-<button class="dbtn" data-d="Петродворцовый">Петродворцовый<small>3 округа</small></button>
-<button class="dbtn" data-d="Приморский">Приморский<small>8 округа</small></button>
-<button class="dbtn" data-d="Пушкинский">Пушкинский<small>5 округа</small></button>
-<button class="dbtn" data-d="Фрунзенский">Фрунзенский<small>5 округа</small></button>
-<button class="dbtn" data-d="Центральный">Центральный<small>6 округа</small></button></div>
-  <div class="mopanel" id="mopanel" style="display:none">
-    <div class="mop-head"><span id="mop-d"></span><button id="mop-back">← к районам</button></div>
-    <div class="mop-list" id="mop-list"></div>
-  </div>
-  <div class="mocard" id="mocard" style="display:none">
-    <button id="mc-back" class="mc-back">← назад</button>
-    <div id="mc-img" class="mc-img"><span class="mc-load">ищу настоящие фото места…</span></div>
-    <div class="mc-info">
-      <div id="mc-name" class="mc-name"></div>
-      <div id="mc-den" class="mc-den"></div>
-      <p class="mc-q">вспомни вечер в этом округе: какое окно горело, когда ты возвращался? что в нём было только твоим?</p>
-      <div class="mc-src">фото: Wikimedia Commons, свободные лицензии · парсинг в браузере</div>
-    </div>
-  </div>
-</section>
-<style>
+  <style>
 .mossec{padding:11vh 6vw;background:linear-gradient(180deg,#160a26,var(--deep,#1a0b2e))}
 .mossec .cap,.mossec .maphead{margin-bottom:4vh}
 .mossec h2{font-size:clamp(26px,4.6vw,46px);margin:0 0 10px;color:#efe9f6;font-weight:600}
@@ -743,5 +765,167 @@ const GEO = {"type":"FeatureCollection","features":[{"type":"Feature","propertie
   });
 })();
 
+<div id="dpanel">
+  <button id="dp-close">×</button>
+  <div class="dp-h">район</div>
+  <div id="dp-name"></div>
+  <div id="dp-sub"></div>
+  <div id="dp-dens"><small>плотность населения</small></div>
+  <p id="dp-q"></p>
+  <div class="dp-h">округа района · клик — фото и вопрос</div>
+  <div id="dp-mos"></div>
+  <div id="dp-hint">кликни округ — откроется снимок и вопрос про вечер, который ты здесь провёл.</div>
+</div>
+<script>
+(function(){
+  var DATA = {"Невский": [{"n": "Муниципальный округ Оккервиль", "d": 25101, "s": ""}, {"n": "Муниципальный округ Невский округ", "d": 15896, "s": ""}, {"n": "Муниципальный округ Правобережный", "d": 13972, "s": ""}, {"n": "Муниципальный округ N 54", "d": 11183, "s": "mo_036"}, {"n": "Муниципальный округ Обуховский", "d": 10446, "s": "mo_039"}, {"n": "Муниципальный округ Народный", "d": 8236, "s": "mo_052"}, {"n": "Муниципальный округ Рыбацкое", "d": 7788, "s": "mo_057"}, {"n": "Муниципальный округ Ивановский", "d": 5012, "s": "mo_064"}, {"n": "Муниципальный округ Невская застава", "d": 4000, "s": "mo_071"}], "Колпинский": [{"n": "Поселок Металлострой", "d": 24636, "s": ""}, {"n": "г Колпино", "d": 2560, "s": "mo_079"}, {"n": "Поселок Понтонный", "d": 1075, "s": "mo_086"}, {"n": "Поселок Усть-Ижора", "d": 631, "s": "mo_093"}, {"n": "Поселок Саперный", "d": 433, "s": "mo_098"}, {"n": "Поселок Петро-Славянка", "d": 124, "s": "mo_104"}], "Калининский": [{"n": "Муниципальный округ Северный", "d": 22430, "s": ""}, {"n": "Муниципальный округ N 21", "d": 19271, "s": ""}, {"n": "Муниципальный округ Прометей", "d": 18945, "s": ""}, {"n": "Муниципальный округ Академическое", "d": 16584, "s": ""}, {"n": "Муниципальный округ Гражданка", "d": 16322, "s": ""}, {"n": "Муниципальный округ Пискаревка", "d": 9055, "s": "mo_048"}, {"n": "Муниципальный округ Финляндский округ", "d": 7101, "s": "mo_059"}], "Фрунзенский": [{"n": "Муниципальный округ Георгиевский", "d": 21867, "s": ""}, {"n": "Муниципальный округ Купчино", "d": 19785, "s": ""}, {"n": "Муниципальный округ Балканский", "d": 17359, "s": ""}, {"n": "Муниципальный округ Александровский", "d": 6248, "s": "mo_061"}, {"n": "Муниципальный округ Волковское", "d": 4882, "s": "mo_065"}], "Красносельский": [{"n": "Муниципальный округ Юго-Запад", "d": 20517, "s": ""}, {"n": "Муниципальный округ Южно-Приморский", "d": 12657, "s": ""}, {"n": "Муниципальный округ Урицк", "d": 10392, "s": "mo_040"}, {"n": "Муниципальный округ Сосновая Поляна", "d": 8666, "s": "mo_050"}, {"n": "г Красное Село", "d": 3172, "s": "mo_076"}, {"n": "Муниципальный округ Константиновское", "d": 2692, "s": "mo_078"}, {"n": "Муниципальный округ Горелово", "d": 885, "s": "mo_088"}], "Центральный": [{"n": "Муниципальный округ Владимирский округ", "d": 20478, "s": ""}, {"n": "Муниципальный округ Литейный округ", "d": 16858, "s": ""}, {"n": "Муниципальный округ Смольнинское", "d": 13519, "s": ""}, {"n": "Муниципальный округ N 78", "d": 6839, "s": "mo_060"}, {"n": "Муниципальный округ Лиговка-Ямская", "d": 5916, "s": "mo_063"}, {"n": "Муниципальный округ Дворцовый округ", "d": 4165, "s": "mo_069"}], "Василеостровский": [{"n": "Муниципальный округ Морской", "d": 20376, "s": ""}, {"n": "Муниципальный округ Васильевский", "d": 13252, "s": ""}, {"n": "Муниципальный округ Гавань", "d": 13037, "s": ""}, {"n": "Муниципальный округ Остров Декабристов", "d": 9815, "s": "mo_044"}, {"n": "Муниципальный округ N 7", "d": 8487, "s": "mo_051"}], "Кировский": [{"n": "Муниципальный округ Красненькая речка", "d": 18759, "s": ""}, {"n": "Муниципальный округ Дачное", "d": 16281, "s": ""}, {"n": "Муниципальный округ Ульянка", "d": 15752, "s": ""}, {"n": "Муниципальный округ Княжево", "d": 13058, "s": ""}, {"n": "Муниципальный округ Нарвский округ", "d": 4368, "s": "mo_068"}, {"n": "Муниципальный округ Автово", "d": 3541, "s": "mo_074"}, {"n": "Муниципальный округ Морские ворота", "d": 1300, "s": "mo_083"}], "Адмиралтейский": [{"n": "Муниципальный округ Сенной округ", "d": 18493, "s": ""}, {"n": "Муниципальный округ Коломна", "d": 17748, "s": ""}, {"n": "Муниципальный округ Семёновский", "d": 13319, "s": ""}, {"n": "Муниципальный округ Адмиралтейский округ", "d": 11415, "s": "mo_035"}, {"n": "Муниципальный округ Измайловское", "d": 10270, "s": "mo_041"}, {"n": "Муниципальный округ Екатерингофский", "d": 7114, "s": "mo_058"}], "Красногвардейский": [{"n": "Муниципальный округ Пороховые", "d": 18065, "s": ""}, {"n": "Муниципальный округ Большая Охта", "d": 10030, "s": "mo_042"}, {"n": "Муниципальный округ Малая Охта", "d": 8173, "s": "mo_055"}, {"n": "Муниципальный округ Полюстрово", "d": 3679, "s": "mo_072"}, {"n": "Муниципальный округ Ржевка", "d": 3590, "s": "mo_073"}], "Приморский": [{"n": "Муниципальный округ Комендантский аэродром", "d": 17520, "s": ""}, {"n": "Муниципальный округ N 65", "d": 17416, "s": ""}, {"n": "Муниципальный округ Озеро Долгое", "d": 16831, "s": ""}, {"n": "Муниципальный округ Юнтолово", "d": 9775, "s": "mo_045"}, {"n": "Муниципальный округ Ланское", "d": 9041, "s": "mo_049"}, {"n": "Муниципальный округ Коломяги", "d": 4623, "s": "mo_066"}, {"n": "Поселок Лисий Нос", "d": 773, "s": "mo_089"}, {"n": "Муниципальный округ Лахта-Ольгино", "d": 515, "s": "mo_096"}], "Выборгский": [{"n": "Муниципальный округ Шувалово-Озерки", "d": 16286, "s": ""}, {"n": "Муниципальный округ Сосновское", "d": 10543, "s": "mo_038"}, {"n": "Муниципальный округ Сергиевское", "d": 9853, "s": "mo_043"}, {"n": "Муниципальный округ Сампсониевское", "d": 8093, "s": "mo_056"}, {"n": "Муниципальный округ Светлановское", "d": 4106, "s": "mo_070"}, {"n": "Поселок Парголово", "d": 2756, "s": "mo_077"}, {"n": "Поселок Левашово", "d": 178, "s": "mo_101"}], "Петроградский": [{"n": "Муниципальный округ Введенский", "d": 14765, "s": ""}, {"n": "Муниципальный округ Кронверкское", "d": 9702, "s": "mo_046"}, {"n": "Муниципальный округ Посадский", "d": 9284, "s": "mo_047"}, {"n": "Муниципальный округ Аптекарский Остров", "d": 8207, "s": "mo_054"}, {"n": "Муниципальный округ округ Петровский", "d": 6141, "s": "mo_062"}, {"n": "Муниципальный округ Чкаловское", "d": 3195, "s": "mo_075"}], "Московский": [{"n": "Муниципальный округ Новоизмайловское", "d": 12449, "s": "mo_034"}, {"n": "Муниципальный округ Звездное", "d": 10598, "s": "mo_037"}, {"n": "Муниципальный округ Гагаринское", "d": 8233, "s": "mo_053"}, {"n": "Муниципальный округ Московская Застава", "d": 4497, "s": "mo_067"}, {"n": "Муниципальный округ Пулковский меридиан", "d": 1273, "s": "mo_084"}], "Кронштадтский": [{"n": "г Кронштадт", "d": 2308, "s": "mo_080"}], "Петродворцовый": [{"n": "г Петергоф", "d": 1693, "s": "mo_081"}, {"n": "г Ломоносов", "d": 938, "s": "mo_087"}, {"n": "п Стрельна", "d": 754, "s": "mo_090"}], "Пушкинский": [{"n": "п Шушары", "d": 1359, "s": "mo_082"}, {"n": "г Пушкин", "d": 1220, "s": "mo_085"}, {"n": "п Александровская", "d": 675, "s": "mo_091"}, {"n": "п Тярлево", "d": 674, "s": "mo_092"}, {"n": "г Павловск", "d": 464, "s": "mo_097"}], "Курортный": [{"n": "Поселок Песочный", "d": 567, "s": "mo_094"}, {"n": "г Сестрорецк", "d": 524, "s": "mo_095"}, {"n": "г Зеленогорск", "d": 389, "s": "mo_099"}, {"n": "Поселок Репино", "d": 192, "s": "mo_100"}, {"n": "Поселок Солнечное", "d": 132, "s": "mo_102"}, {"n": "Поселок Молодежное", "d": 127, "s": "mo_103"}, {"n": "Поселок Белоостров", "d": 98, "s": "mo_105"}, {"n": "Поселок Смолячково", "d": 90, "s": "mo_106"}, {"n": "Поселок Комарово", "d": 48, "s": "mo_107"}, {"n": "Поселок Ушково", "d": 32, "s": "mo_108"}, {"n": "Поселок Серово", "d": 31, "s": "mo_109"}]};
+  var panel = document.getElementById('dpanel');
+  var openD = null;
+  function openDistrict(d){
+    var mos = DATA[d];
+    if (!mos) return;
+    openD = d;
+    document.getElementById('dp-name').textContent = d + ' район';
+    document.getElementById('dp-sub').textContent = mos.length + ' внутригородских округов · население: Росстат 01.01.2025';
+    var dens = Math.max.apply(null, mos.map(function(m){ return m.d; }));
+    document.getElementById('dp-dens').innerHTML = dens.toLocaleString('ru-RU') + '<small>чел/км² — самый плотный округ района</small>';
+    var center = { 'Центральный': 44.4, 'Пушкинский': 39.3 };
+    var q = 'вспомни вечер в этом районе: какое окно горело, когда ты возвращался? что в нём было только твоим?';
+    document.getElementById('dp-q').textContent = q;
+    var box = document.getElementById('dp-mos');
+    box.innerHTML = '';
+    mos.forEach(function(m){
+      var el = document.createElement('div');
+      el.className = 'mol';
+      el.innerHTML = '<span class="n">' + m.n + '</span><span class="d">' + m.d.toLocaleString('ru-RU') + ' чел/км²</span>';
+      var body = document.createElement('div');
+      var slug = m.s;
+      if (slug){
+        var img = document.createElement('img');
+        img.loading = 'lazy'; img.src = 'mo/' + slug + '.jpg'; img.alt = m.n;
+        body.appendChild(img);
+      }
+      var qq = document.createElement('p');
+      qq.className = 'q';
+      qq.textContent = 'вспомни вечер в этом округе: какое окно горело, когда ты возвращался? что в нём было только твоим?';
+      body.appendChild(qq);
+      el.appendChild(body);
+      el.addEventListener('click', function(){ el.classList.toggle('open'); });
+      box.appendChild(el);
+    });
+    panel.classList.add('on');
+    if (navigator.vibrate) navigator.vibrate(12);
+  }
+  window.openDistrict = openDistrict;
+  function close(){ panel.classList.remove('on'); openD = null; }
+  document.getElementById('dp-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+
+  // клик по району на SVG-карте → панель
+  document.querySelectorAll('#shapes .dist').forEach(function(p){
+    p.addEventListener('click', function(){
+      var short = p.dataset.name; // name_short
+      var d = null;
+      Object.keys(DATA).forEach(function(k){ if (k.indexOf(short) === 0) d = k; });
+      if (d) openDistrict(d);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('roll');
+  if (!btn) return;
+  var btnText = btn.textContent;
+  btn.textContent = 'бросить кубик — он выберет район →';
+  var DISTS = Object.keys(window.openDistrict ? {} : {});
+  var NAMES = ['Колпинский','Пушкинский','Московский','Красносельский','Петродворцовый','Кронштадтский','Курортный','Приморский','Невский','Фрунзенский','Центральный','Адмиралтейский','Петроградский','Василеостровский','Выборгский','Калининский','Красногвардейский'];
+  btn.addEventListener('click', function(){
+    var d = NAMES[Math.floor(Math.random() * NAMES.length)];
+    setTimeout(function(){ if (window.openDistrict) window.openDistrict(d); }, 900);
+  });
+})();
+</script>
+<div id="dpanel">
+  <button id="dp-close">×</button>
+  <div class="dp-h">район</div>
+  <div id="dp-name"></div>
+  <div id="dp-sub"></div>
+  <div id="dp-dens"><small>плотность населения</small></div>
+  <p id="dp-q"></p>
+  <div class="dp-h">округа района · клик — фото и вопрос</div>
+  <div id="dp-mos"></div>
+  <div id="dp-hint">кликни округ — откроется снимок и вопрос про вечер, который ты здесь провёл.</div>
+</div>
+<script>
+(function(){
+  var DATA = {"Невский": [{"n": "Муниципальный округ Оккервиль", "d": 25101, "s": ""}, {"n": "Муниципальный округ Невский округ", "d": 15896, "s": ""}, {"n": "Муниципальный округ Правобережный", "d": 13972, "s": ""}, {"n": "Муниципальный округ N 54", "d": 11183, "s": "mo_036"}, {"n": "Муниципальный округ Обуховский", "d": 10446, "s": "mo_039"}, {"n": "Муниципальный округ Народный", "d": 8236, "s": "mo_052"}, {"n": "Муниципальный округ Рыбацкое", "d": 7788, "s": "mo_057"}, {"n": "Муниципальный округ Ивановский", "d": 5012, "s": "mo_064"}, {"n": "Муниципальный округ Невская застава", "d": 4000, "s": "mo_071"}], "Колпинский": [{"n": "Поселок Металлострой", "d": 24636, "s": ""}, {"n": "г Колпино", "d": 2560, "s": "mo_079"}, {"n": "Поселок Понтонный", "d": 1075, "s": "mo_086"}, {"n": "Поселок Усть-Ижора", "d": 631, "s": "mo_093"}, {"n": "Поселок Саперный", "d": 433, "s": "mo_098"}, {"n": "Поселок Петро-Славянка", "d": 124, "s": "mo_104"}], "Калининский": [{"n": "Муниципальный округ Северный", "d": 22430, "s": ""}, {"n": "Муниципальный округ N 21", "d": 19271, "s": ""}, {"n": "Муниципальный округ Прометей", "d": 18945, "s": ""}, {"n": "Муниципальный округ Академическое", "d": 16584, "s": ""}, {"n": "Муниципальный округ Гражданка", "d": 16322, "s": ""}, {"n": "Муниципальный округ Пискаревка", "d": 9055, "s": "mo_048"}, {"n": "Муниципальный округ Финляндский округ", "d": 7101, "s": "mo_059"}], "Фрунзенский": [{"n": "Муниципальный округ Георгиевский", "d": 21867, "s": ""}, {"n": "Муниципальный округ Купчино", "d": 19785, "s": ""}, {"n": "Муниципальный округ Балканский", "d": 17359, "s": ""}, {"n": "Муниципальный округ Александровский", "d": 6248, "s": "mo_061"}, {"n": "Муниципальный округ Волковское", "d": 4882, "s": "mo_065"}], "Красносельский": [{"n": "Муниципальный округ Юго-Запад", "d": 20517, "s": ""}, {"n": "Муниципальный округ Южно-Приморский", "d": 12657, "s": ""}, {"n": "Муниципальный округ Урицк", "d": 10392, "s": "mo_040"}, {"n": "Муниципальный округ Сосновая Поляна", "d": 8666, "s": "mo_050"}, {"n": "г Красное Село", "d": 3172, "s": "mo_076"}, {"n": "Муниципальный округ Константиновское", "d": 2692, "s": "mo_078"}, {"n": "Муниципальный округ Горелово", "d": 885, "s": "mo_088"}], "Центральный": [{"n": "Муниципальный округ Владимирский округ", "d": 20478, "s": ""}, {"n": "Муниципальный округ Литейный округ", "d": 16858, "s": ""}, {"n": "Муниципальный округ Смольнинское", "d": 13519, "s": ""}, {"n": "Муниципальный округ N 78", "d": 6839, "s": "mo_060"}, {"n": "Муниципальный округ Лиговка-Ямская", "d": 5916, "s": "mo_063"}, {"n": "Муниципальный округ Дворцовый округ", "d": 4165, "s": "mo_069"}], "Василеостровский": [{"n": "Муниципальный округ Морской", "d": 20376, "s": ""}, {"n": "Муниципальный округ Васильевский", "d": 13252, "s": ""}, {"n": "Муниципальный округ Гавань", "d": 13037, "s": ""}, {"n": "Муниципальный округ Остров Декабристов", "d": 9815, "s": "mo_044"}, {"n": "Муниципальный округ N 7", "d": 8487, "s": "mo_051"}], "Кировский": [{"n": "Муниципальный округ Красненькая речка", "d": 18759, "s": ""}, {"n": "Муниципальный округ Дачное", "d": 16281, "s": ""}, {"n": "Муниципальный округ Ульянка", "d": 15752, "s": ""}, {"n": "Муниципальный округ Княжево", "d": 13058, "s": ""}, {"n": "Муниципальный округ Нарвский округ", "d": 4368, "s": "mo_068"}, {"n": "Муниципальный округ Автово", "d": 3541, "s": "mo_074"}, {"n": "Муниципальный округ Морские ворота", "d": 1300, "s": "mo_083"}], "Адмиралтейский": [{"n": "Муниципальный округ Сенной округ", "d": 18493, "s": ""}, {"n": "Муниципальный округ Коломна", "d": 17748, "s": ""}, {"n": "Муниципальный округ Семёновский", "d": 13319, "s": ""}, {"n": "Муниципальный округ Адмиралтейский округ", "d": 11415, "s": "mo_035"}, {"n": "Муниципальный округ Измайловское", "d": 10270, "s": "mo_041"}, {"n": "Муниципальный округ Екатерингофский", "d": 7114, "s": "mo_058"}], "Красногвардейский": [{"n": "Муниципальный округ Пороховые", "d": 18065, "s": ""}, {"n": "Муниципальный округ Большая Охта", "d": 10030, "s": "mo_042"}, {"n": "Муниципальный округ Малая Охта", "d": 8173, "s": "mo_055"}, {"n": "Муниципальный округ Полюстрово", "d": 3679, "s": "mo_072"}, {"n": "Муниципальный округ Ржевка", "d": 3590, "s": "mo_073"}], "Приморский": [{"n": "Муниципальный округ Комендантский аэродром", "d": 17520, "s": ""}, {"n": "Муниципальный округ N 65", "d": 17416, "s": ""}, {"n": "Муниципальный округ Озеро Долгое", "d": 16831, "s": ""}, {"n": "Муниципальный округ Юнтолово", "d": 9775, "s": "mo_045"}, {"n": "Муниципальный округ Ланское", "d": 9041, "s": "mo_049"}, {"n": "Муниципальный округ Коломяги", "d": 4623, "s": "mo_066"}, {"n": "Поселок Лисий Нос", "d": 773, "s": "mo_089"}, {"n": "Муниципальный округ Лахта-Ольгино", "d": 515, "s": "mo_096"}], "Выборгский": [{"n": "Муниципальный округ Шувалово-Озерки", "d": 16286, "s": ""}, {"n": "Муниципальный округ Сосновское", "d": 10543, "s": "mo_038"}, {"n": "Муниципальный округ Сергиевское", "d": 9853, "s": "mo_043"}, {"n": "Муниципальный округ Сампсониевское", "d": 8093, "s": "mo_056"}, {"n": "Муниципальный округ Светлановское", "d": 4106, "s": "mo_070"}, {"n": "Поселок Парголово", "d": 2756, "s": "mo_077"}, {"n": "Поселок Левашово", "d": 178, "s": "mo_101"}], "Петроградский": [{"n": "Муниципальный округ Введенский", "d": 14765, "s": ""}, {"n": "Муниципальный округ Кронверкское", "d": 9702, "s": "mo_046"}, {"n": "Муниципальный округ Посадский", "d": 9284, "s": "mo_047"}, {"n": "Муниципальный округ Аптекарский Остров", "d": 8207, "s": "mo_054"}, {"n": "Муниципальный округ округ Петровский", "d": 6141, "s": "mo_062"}, {"n": "Муниципальный округ Чкаловское", "d": 3195, "s": "mo_075"}], "Московский": [{"n": "Муниципальный округ Новоизмайловское", "d": 12449, "s": "mo_034"}, {"n": "Муниципальный округ Звездное", "d": 10598, "s": "mo_037"}, {"n": "Муниципальный округ Гагаринское", "d": 8233, "s": "mo_053"}, {"n": "Муниципальный округ Московская Застава", "d": 4497, "s": "mo_067"}, {"n": "Муниципальный округ Пулковский меридиан", "d": 1273, "s": "mo_084"}], "Кронштадтский": [{"n": "г Кронштадт", "d": 2308, "s": "mo_080"}], "Петродворцовый": [{"n": "г Петергоф", "d": 1693, "s": "mo_081"}, {"n": "г Ломоносов", "d": 938, "s": "mo_087"}, {"n": "п Стрельна", "d": 754, "s": "mo_090"}], "Пушкинский": [{"n": "п Шушары", "d": 1359, "s": "mo_082"}, {"n": "г Пушкин", "d": 1220, "s": "mo_085"}, {"n": "п Александровская", "d": 675, "s": "mo_091"}, {"n": "п Тярлево", "d": 674, "s": "mo_092"}, {"n": "г Павловск", "d": 464, "s": "mo_097"}], "Курортный": [{"n": "Поселок Песочный", "d": 567, "s": "mo_094"}, {"n": "г Сестрорецк", "d": 524, "s": "mo_095"}, {"n": "г Зеленогорск", "d": 389, "s": "mo_099"}, {"n": "Поселок Репино", "d": 192, "s": "mo_100"}, {"n": "Поселок Солнечное", "d": 132, "s": "mo_102"}, {"n": "Поселок Молодежное", "d": 127, "s": "mo_103"}, {"n": "Поселок Белоостров", "d": 98, "s": "mo_105"}, {"n": "Поселок Смолячково", "d": 90, "s": "mo_106"}, {"n": "Поселок Комарово", "d": 48, "s": "mo_107"}, {"n": "Поселок Ушково", "d": 32, "s": "mo_108"}, {"n": "Поселок Серово", "d": 31, "s": "mo_109"}]};
+  var panel = document.getElementById('dpanel');
+  var openD = null;
+  function openDistrict(d){
+    var mos = DATA[d];
+    if (!mos) return;
+    openD = d;
+    document.getElementById('dp-name').textContent = d + ' район';
+    document.getElementById('dp-sub').textContent = mos.length + ' внутригородских округов · население: Росстат 01.01.2025';
+    var dens = Math.max.apply(null, mos.map(function(m){ return m.d; }));
+    document.getElementById('dp-dens').innerHTML = dens.toLocaleString('ru-RU') + '<small>чел/км² — самый плотный округ района</small>';
+    var center = { 'Центральный': 44.4, 'Пушкинский': 39.3 };
+    var q = 'вспомни вечер в этом районе: какое окно горело, когда ты возвращался? что в нём было только твоим?';
+    document.getElementById('dp-q').textContent = q;
+    var box = document.getElementById('dp-mos');
+    box.innerHTML = '';
+    mos.forEach(function(m){
+      var el = document.createElement('div');
+      el.className = 'mol';
+      el.innerHTML = '<span class="n">' + m.n + '</span><span class="d">' + m.d.toLocaleString('ru-RU') + ' чел/км²</span>';
+      var body = document.createElement('div');
+      var slug = m.s;
+      if (slug){
+        var img = document.createElement('img');
+        img.loading = 'lazy'; img.src = 'mo/' + slug + '.jpg'; img.alt = m.n;
+        body.appendChild(img);
+      }
+      var qq = document.createElement('p');
+      qq.className = 'q';
+      qq.textContent = 'вспомни вечер в этом округе: какое окно горело, когда ты возвращался? что в нём было только твоим?';
+      body.appendChild(qq);
+      el.appendChild(body);
+      el.addEventListener('click', function(){ el.classList.toggle('open'); });
+      box.appendChild(el);
+    });
+    panel.classList.add('on');
+    if (navigator.vibrate) navigator.vibrate(12);
+  }
+  window.openDistrict = openDistrict;
+  function close(){ panel.classList.remove('on'); openD = null; }
+  document.getElementById('dp-close').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+
+  // клик по району на SVG-карте → панель
+  document.querySelectorAll('#shapes .dist').forEach(function(p){
+    p.addEventListener('click', function(){
+      var short = p.dataset.name; // name_short
+      var d = null;
+      Object.keys(DATA).forEach(function(k){ if (k.indexOf(short) === 0) d = k; });
+      if (d) openDistrict(d);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('roll');
+  if (!btn) return;
+  var btnText = btn.textContent;
+  btn.textContent = 'бросить кубик — он выберет район →';
+  var DISTS = Object.keys(window.openDistrict ? {} : {});
+  var NAMES = ['Колпинский','Пушкинский','Московский','Красносельский','Петродворцовый','Кронштадтский','Курортный','Приморский','Невский','Фрунзенский','Центральный','Адмиралтейский','Петроградский','Василеостровский','Выборгский','Калининский','Красногвардейский'];
+  btn.addEventListener('click', function(){
+    var d = NAMES[Math.floor(Math.random() * NAMES.length)];
+    setTimeout(function(){ if (window.openDistrict) window.openDistrict(d); }, 900);
+  });
+})();
+</script>
 </body>
 </html>
