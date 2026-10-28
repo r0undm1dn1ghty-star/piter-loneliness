@@ -186,22 +186,9 @@ tr.hl td.num{color:var(--rose);font-weight:600}
   .card .w b{color:var(--ink)}
 
 </style>
-<style>
-  #moover{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;
-    background:rgba(10,5,20,.88);backdrop-filter:blur(8px);padding:4vh 4vw}
-  #moover.on{display:flex}
-  .mobox{max-width:640px;width:100%;background:#160a26;border:1px solid rgba(181,126,220,.32);
-    border-radius:6px;overflow:hidden;max-height:92vh;overflow-y:auto}
-  .mobox img{width:100%;max-height:400px;object-fit:cover;display:block}
-  .moinfo{padding:22px 24px 26px}
-  #moname{font-size:26px;font-weight:600;color:#efe9f6}
-  #moden{color:var(--lav,#b57edc);font-size:16px;margin:6px 0 14px}
-  #moq{font-family:Georgia,serif;font-style:italic;font-size:17px;color:#cfc2e2;line-height:1.55;margin:0 0 16px}
-  #moclose{background:none;border:1px solid rgba(181,126,220,.4);color:#cfc2e2;font:inherit;
-    font-size:13px;padding:8px 16px;border-radius:2px;cursor:pointer}
-</style>
+<style>.victorfoto{position:fixed;inset:0;z-index:0;pointer-events:none;background:url("depression.jpg") center/cover no-repeat;opacity:.14;filter:blur(2px) saturate(.8)}.victorfoto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,11,46,.86),rgba(26,11,46,.94))}body>*:not(.victorfoto){position:relative;z-index:1}</style>
 </head>
-<body>
+<body><div class="victorfoto"></div>
 <div class="wrap">
 
   <header class="hero">
@@ -240,7 +227,7 @@ tr.hl td.num{color:var(--rose);font-weight:600}
             <small>пушкинский район — самый молодой. в новостройках на юге город моложе, но и связей там меньше: все недавно приехали.</small>
           </div>
         </div>
-        <div class="honest"><b>что здесь честно, а что — модель.</b> 49% и состав домохозяйств — перепись 2021. численность округов — Росстат на 01.01.2025. плотность — расчёт по площадям из открытых источников. районной статистики одиночества не существует: карта показывает условия, в которых одному живётся теснее или просторнее. РБК отдельно писал, что перепись могла завысить долю одиночек процедурой — я оставляю цифру с этой оговоркой. фото округов — атмосферные снимки по характеру застройки, не документальные.</div>
+        <div class="honest"><b>что здесь честно, а что — модель.</b> 49% и состав домохозяйств — перепись 2021. численность округов — Росстат на 01.01.2025. плотность — расчёт по площадям из открытых источников. районной статистики одиночества не существует: карта показывает условия, в которых одному живётся теснее или просторнее. РБК отдельно писал, что перепись могла завысить долю одиночек процедурой — я оставляю цифру с этой оговоркой. фон — моя фотография, не сток.</div>
       </div>
 
       <div>
@@ -254,116 +241,165 @@ tr.hl td.num{color:var(--rose);font-weight:600}
   </section>
 
 
-  <section class="mossec"><div class="maphead"><h2>одиночество измеряется не районом — округом</h2><span>111 округов · население: Росстат 01.01.2025 · клик по округу — фото и цифра</span></div><div class="rrow" data-d="Адмиралтейский"><button class="rcap"><span class="rn">Адмиралтейский</span><span class="rm">6 округа · от 7 114 до 18 493 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Сенной округ" data-den="18 493 чел/км²"><span class="mo">Муниципальный округ Сенной округ</span><span class="den">18 493 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Коломна" data-den="17 748 чел/км²"><span class="mo">Муниципальный округ Коломна</span><span class="den">17 748 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Семёновский" data-den="13 319 чел/км²"><span class="mo">Муниципальный округ Семёновский</span><span class="den">13 319 чел/км²</span></div>
-<div class="mol" data-slug="mo_035" data-name="Муниципальный округ Адмиралтейский округ" data-den="11 415 чел/км²"><span class="mo">Муниципальный округ Адмиралтейский округ</span><span class="den">11 415 чел/км²</span></div>
-<div class="mol" data-slug="mo_041" data-name="Муниципальный округ Измайловское" data-den="10 270 чел/км²"><span class="mo">Муниципальный округ Измайловское</span><span class="den">10 270 чел/км²</span></div>
-<div class="mol" data-slug="mo_058" data-name="Муниципальный округ Екатерингофский" data-den="7 114 чел/км²"><span class="mo">Муниципальный округ Екатерингофский</span><span class="den">7 114 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Василеостровский"><button class="rcap"><span class="rn">Василеостровский</span><span class="rm">5 округа · от 8 487 до 20 376 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Морской" data-den="20 376 чел/км²"><span class="mo">Муниципальный округ Морской</span><span class="den">20 376 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Васильевский" data-den="13 252 чел/км²"><span class="mo">Муниципальный округ Васильевский</span><span class="den">13 252 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Гавань" data-den="13 037 чел/км²"><span class="mo">Муниципальный округ Гавань</span><span class="den">13 037 чел/км²</span></div>
-<div class="mol" data-slug="mo_044" data-name="Муниципальный округ Остров Декабристов" data-den="9 815 чел/км²"><span class="mo">Муниципальный округ Остров Декабристов</span><span class="den">9 815 чел/км²</span></div>
-<div class="mol" data-slug="mo_051" data-name="Муниципальный округ № 7" data-den="8 487 чел/км²"><span class="mo">Муниципальный округ № 7</span><span class="den">8 487 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Выборгский"><button class="rcap"><span class="rn">Выборгский</span><span class="rm">7 округа · от 178 до 16 286 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Шувалово-Озерки" data-den="16 286 чел/км²"><span class="mo">Муниципальный округ Шувалово-Озерки</span><span class="den">16 286 чел/км²</span></div>
-<div class="mol" data-slug="mo_038" data-name="Муниципальный округ Сосновское" data-den="10 543 чел/км²"><span class="mo">Муниципальный округ Сосновское</span><span class="den">10 543 чел/км²</span></div>
-<div class="mol" data-slug="mo_043" data-name="Муниципальный округ Сергиевское" data-den="9 853 чел/км²"><span class="mo">Муниципальный округ Сергиевское</span><span class="den">9 853 чел/км²</span></div>
-<div class="mol" data-slug="mo_056" data-name="Муниципальный округ Сампсониевское" data-den="8 093 чел/км²"><span class="mo">Муниципальный округ Сампсониевское</span><span class="den">8 093 чел/км²</span></div>
-<div class="mol" data-slug="mo_070" data-name="Муниципальный округ Светлановское" data-den="4 106 чел/км²"><span class="mo">Муниципальный округ Светлановское</span><span class="den">4 106 чел/км²</span></div>
-<div class="mol" data-slug="mo_077" data-name="Поселок Парголово" data-den="2 756 чел/км²"><span class="mo">Поселок Парголово</span><span class="den">2 756 чел/км²</span></div>
-<div class="mol" data-slug="mo_101" data-name="Поселок Левашово" data-den="178 чел/км²"><span class="mo">Поселок Левашово</span><span class="den">178 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Калининский"><button class="rcap"><span class="rn">Калининский</span><span class="rm">7 округа · от 7 101 до 22 430 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Северный" data-den="22 430 чел/км²"><span class="mo">Муниципальный округ Северный</span><span class="den">22 430 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ № 21" data-den="19 271 чел/км²"><span class="mo">Муниципальный округ № 21</span><span class="den">19 271 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Прометей" data-den="18 945 чел/км²"><span class="mo">Муниципальный округ Прометей</span><span class="den">18 945 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Академическое" data-den="16 584 чел/км²"><span class="mo">Муниципальный округ Академическое</span><span class="den">16 584 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Гражданка" data-den="16 322 чел/км²"><span class="mo">Муниципальный округ Гражданка</span><span class="den">16 322 чел/км²</span></div>
-<div class="mol" data-slug="mo_048" data-name="Муниципальный округ Пискаревка" data-den="9 055 чел/км²"><span class="mo">Муниципальный округ Пискаревка</span><span class="den">9 055 чел/км²</span></div>
-<div class="mol" data-slug="mo_059" data-name="Муниципальный округ Финляндский округ" data-den="7 101 чел/км²"><span class="mo">Муниципальный округ Финляндский округ</span><span class="den">7 101 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Кировский"><button class="rcap"><span class="rn">Кировский</span><span class="rm">7 округа · от 1 300 до 18 759 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Красненькая речка" data-den="18 759 чел/км²"><span class="mo">Муниципальный округ Красненькая речка</span><span class="den">18 759 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Дачное" data-den="16 281 чел/км²"><span class="mo">Муниципальный округ Дачное</span><span class="den">16 281 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Ульянка" data-den="15 752 чел/км²"><span class="mo">Муниципальный округ Ульянка</span><span class="den">15 752 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Княжево" data-den="13 058 чел/км²"><span class="mo">Муниципальный округ Княжево</span><span class="den">13 058 чел/км²</span></div>
-<div class="mol" data-slug="mo_068" data-name="Муниципальный округ Нарвский округ" data-den="4 368 чел/км²"><span class="mo">Муниципальный округ Нарвский округ</span><span class="den">4 368 чел/км²</span></div>
-<div class="mol" data-slug="mo_074" data-name="Муниципальный округ Автово" data-den="3 541 чел/км²"><span class="mo">Муниципальный округ Автово</span><span class="den">3 541 чел/км²</span></div>
-<div class="mol" data-slug="mo_083" data-name="Муниципальный округ Морские ворота" data-den="1 300 чел/км²"><span class="mo">Муниципальный округ Морские ворота</span><span class="den">1 300 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Колпинский"><button class="rcap"><span class="rn">Колпинский</span><span class="rm">6 округа · от 124 до 24 636 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Поселок Металлострой" data-den="24 636 чел/км²"><span class="mo">Поселок Металлострой</span><span class="den">24 636 чел/км²</span></div>
-<div class="mol" data-slug="mo_079" data-name="г Колпино" data-den="2 560 чел/км²"><span class="mo">г Колпино</span><span class="den">2 560 чел/км²</span></div>
-<div class="mol" data-slug="mo_086" data-name="Поселок Понтонный" data-den="1 075 чел/км²"><span class="mo">Поселок Понтонный</span><span class="den">1 075 чел/км²</span></div>
-<div class="mol" data-slug="mo_093" data-name="Поселок Усть-Ижора" data-den="631 чел/км²"><span class="mo">Поселок Усть-Ижора</span><span class="den">631 чел/км²</span></div>
-<div class="mol" data-slug="mo_098" data-name="Поселок Саперный" data-den="433 чел/км²"><span class="mo">Поселок Саперный</span><span class="den">433 чел/км²</span></div>
-<div class="mol" data-slug="mo_104" data-name="Поселок Петро-Славянка" data-den="124 чел/км²"><span class="mo">Поселок Петро-Славянка</span><span class="den">124 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Красногвардейский"><button class="rcap"><span class="rn">Красногвардейский</span><span class="rm">5 округа · от 3 590 до 18 065 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Пороховые" data-den="18 065 чел/км²"><span class="mo">Муниципальный округ Пороховые</span><span class="den">18 065 чел/км²</span></div>
-<div class="mol" data-slug="mo_042" data-name="Муниципальный округ Большая Охта" data-den="10 030 чел/км²"><span class="mo">Муниципальный округ Большая Охта</span><span class="den">10 030 чел/км²</span></div>
-<div class="mol" data-slug="mo_055" data-name="Муниципальный округ Малая Охта" data-den="8 173 чел/км²"><span class="mo">Муниципальный округ Малая Охта</span><span class="den">8 173 чел/км²</span></div>
-<div class="mol" data-slug="mo_072" data-name="Муниципальный округ Полюстрово" data-den="3 679 чел/км²"><span class="mo">Муниципальный округ Полюстрово</span><span class="den">3 679 чел/км²</span></div>
-<div class="mol" data-slug="mo_073" data-name="Муниципальный округ Ржевка" data-den="3 590 чел/км²"><span class="mo">Муниципальный округ Ржевка</span><span class="den">3 590 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Красносельский"><button class="rcap"><span class="rn">Красносельский</span><span class="rm">7 округа · от 885 до 20 517 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Юго-Запад" data-den="20 517 чел/км²"><span class="mo">Муниципальный округ Юго-Запад</span><span class="den">20 517 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Южно-Приморский" data-den="12 657 чел/км²"><span class="mo">Муниципальный округ Южно-Приморский</span><span class="den">12 657 чел/км²</span></div>
-<div class="mol" data-slug="mo_040" data-name="Муниципальный округ Урицк" data-den="10 392 чел/км²"><span class="mo">Муниципальный округ Урицк</span><span class="den">10 392 чел/км²</span></div>
-<div class="mol" data-slug="mo_050" data-name="Муниципальный округ Сосновая Поляна" data-den="8 666 чел/км²"><span class="mo">Муниципальный округ Сосновая Поляна</span><span class="den">8 666 чел/км²</span></div>
-<div class="mol" data-slug="mo_076" data-name="г Красное Село" data-den="3 172 чел/км²"><span class="mo">г Красное Село</span><span class="den">3 172 чел/км²</span></div>
-<div class="mol" data-slug="mo_078" data-name="Муниципальный округ Константиновское" data-den="2 692 чел/км²"><span class="mo">Муниципальный округ Константиновское</span><span class="den">2 692 чел/км²</span></div>
-<div class="mol" data-slug="mo_088" data-name="Муниципальный округ Горелово" data-den="885 чел/км²"><span class="mo">Муниципальный округ Горелово</span><span class="den">885 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Кронштадтский"><button class="rcap"><span class="rn">Кронштадтский</span><span class="rm">1 округа · от 2 308 до 2 308 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="mo_080" data-name="г Кронштадт" data-den="2 308 чел/км²"><span class="mo">г Кронштадт</span><span class="den">2 308 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Курортный"><button class="rcap"><span class="rn">Курортный</span><span class="rm">11 округа · от 31 до 567 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="mo_094" data-name="Поселок Песочный" data-den="567 чел/км²"><span class="mo">Поселок Песочный</span><span class="den">567 чел/км²</span></div>
-<div class="mol" data-slug="mo_095" data-name="г Сестрорецк" data-den="524 чел/км²"><span class="mo">г Сестрорецк</span><span class="den">524 чел/км²</span></div>
-<div class="mol" data-slug="mo_099" data-name="г Зеленогорск" data-den="389 чел/км²"><span class="mo">г Зеленогорск</span><span class="den">389 чел/км²</span></div>
-<div class="mol" data-slug="mo_100" data-name="Поселок Репино" data-den="192 чел/км²"><span class="mo">Поселок Репино</span><span class="den">192 чел/км²</span></div>
-<div class="mol" data-slug="mo_102" data-name="Поселок Солнечное" data-den="132 чел/км²"><span class="mo">Поселок Солнечное</span><span class="den">132 чел/км²</span></div>
-<div class="mol" data-slug="mo_103" data-name="Поселок Молодежное" data-den="127 чел/км²"><span class="mo">Поселок Молодежное</span><span class="den">127 чел/км²</span></div>
-<div class="mol" data-slug="mo_105" data-name="Поселок Белоостров" data-den="98 чел/км²"><span class="mo">Поселок Белоостров</span><span class="den">98 чел/км²</span></div>
-<div class="mol" data-slug="mo_106" data-name="Поселок Смолячково" data-den="90 чел/км²"><span class="mo">Поселок Смолячково</span><span class="den">90 чел/км²</span></div>
-<div class="mol" data-slug="mo_107" data-name="Поселок Комарово" data-den="48 чел/км²"><span class="mo">Поселок Комарово</span><span class="den">48 чел/км²</span></div>
-<div class="mol" data-slug="mo_108" data-name="Поселок Ушково" data-den="32 чел/км²"><span class="mo">Поселок Ушково</span><span class="den">32 чел/км²</span></div>
-<div class="mol" data-slug="mo_109" data-name="Поселок Серово" data-den="31 чел/км²"><span class="mo">Поселок Серово</span><span class="den">31 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Московский"><button class="rcap"><span class="rn">Московский</span><span class="rm">5 округа · от 1 273 до 12 449 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="mo_034" data-name="Муниципальный округ Новоизмайловское" data-den="12 449 чел/км²"><span class="mo">Муниципальный округ Новоизмайловское</span><span class="den">12 449 чел/км²</span></div>
-<div class="mol" data-slug="mo_037" data-name="Муниципальный округ Звездное" data-den="10 598 чел/км²"><span class="mo">Муниципальный округ Звездное</span><span class="den">10 598 чел/км²</span></div>
-<div class="mol" data-slug="mo_053" data-name="Муниципальный округ Гагаринское" data-den="8 233 чел/км²"><span class="mo">Муниципальный округ Гагаринское</span><span class="den">8 233 чел/км²</span></div>
-<div class="mol" data-slug="mo_067" data-name="Муниципальный округ Московская Застава" data-den="4 497 чел/км²"><span class="mo">Муниципальный округ Московская Застава</span><span class="den">4 497 чел/км²</span></div>
-<div class="mol" data-slug="mo_084" data-name="Муниципальный округ Пулковский меридиан" data-den="1 273 чел/км²"><span class="mo">Муниципальный округ Пулковский меридиан</span><span class="den">1 273 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Невский"><button class="rcap"><span class="rn">Невский</span><span class="rm">9 округа · от 4 000 до 25 101 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Оккервиль" data-den="25 101 чел/км²"><span class="mo">Муниципальный округ Оккервиль</span><span class="den">25 101 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Невский округ" data-den="15 896 чел/км²"><span class="mo">Муниципальный округ Невский округ</span><span class="den">15 896 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Правобережный" data-den="13 972 чел/км²"><span class="mo">Муниципальный округ Правобережный</span><span class="den">13 972 чел/км²</span></div>
-<div class="mol" data-slug="mo_036" data-name="Муниципальный округ № 54" data-den="11 183 чел/км²"><span class="mo">Муниципальный округ № 54</span><span class="den">11 183 чел/км²</span></div>
-<div class="mol" data-slug="mo_039" data-name="Муниципальный округ Обуховский" data-den="10 446 чел/км²"><span class="mo">Муниципальный округ Обуховский</span><span class="den">10 446 чел/км²</span></div>
-<div class="mol" data-slug="mo_052" data-name="Муниципальный округ Народный" data-den="8 236 чел/км²"><span class="mo">Муниципальный округ Народный</span><span class="den">8 236 чел/км²</span></div>
-<div class="mol" data-slug="mo_057" data-name="Муниципальный округ Рыбацкое" data-den="7 788 чел/км²"><span class="mo">Муниципальный округ Рыбацкое</span><span class="den">7 788 чел/км²</span></div>
-<div class="mol" data-slug="mo_064" data-name="Муниципальный округ Ивановский" data-den="5 012 чел/км²"><span class="mo">Муниципальный округ Ивановский</span><span class="den">5 012 чел/км²</span></div>
-<div class="mol" data-slug="mo_071" data-name="Муниципальный округ Невская застава" data-den="4 000 чел/км²"><span class="mo">Муниципальный округ Невская застава</span><span class="den">4 000 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Петроградский"><button class="rcap"><span class="rn">Петроградский</span><span class="rm">6 округа · от 3 195 до 14 765 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Введенский" data-den="14 765 чел/км²"><span class="mo">Муниципальный округ Введенский</span><span class="den">14 765 чел/км²</span></div>
-<div class="mol" data-slug="mo_046" data-name="Муниципальный округ Кронверкское" data-den="9 702 чел/км²"><span class="mo">Муниципальный округ Кронверкское</span><span class="den">9 702 чел/км²</span></div>
-<div class="mol" data-slug="mo_047" data-name="Муниципальный округ Посадский" data-den="9 284 чел/км²"><span class="mo">Муниципальный округ Посадский</span><span class="den">9 284 чел/км²</span></div>
-<div class="mol" data-slug="mo_054" data-name="Муниципальный округ Аптекарский Остров" data-den="8 207 чел/км²"><span class="mo">Муниципальный округ Аптекарский Остров</span><span class="den">8 207 чел/км²</span></div>
-<div class="mol" data-slug="mo_062" data-name="Муниципальный округ Петровский" data-den="6 141 чел/км²"><span class="mo">Муниципальный округ Петровский</span><span class="den">6 141 чел/км²</span></div>
-<div class="mol" data-slug="mo_075" data-name="Муниципальный округ Чкаловское" data-den="3 195 чел/км²"><span class="mo">Муниципальный округ Чкаловское</span><span class="den">3 195 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Петродворцовый"><button class="rcap"><span class="rn">Петродворцовый</span><span class="rm">3 округа · от 754 до 1 693 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="mo_081" data-name="г Петергоф" data-den="1 693 чел/км²"><span class="mo">г Петергоф</span><span class="den">1 693 чел/км²</span></div>
-<div class="mol" data-slug="mo_087" data-name="г Ломоносов" data-den="938 чел/км²"><span class="mo">г Ломоносов</span><span class="den">938 чел/км²</span></div>
-<div class="mol" data-slug="mo_090" data-name="п Стрельна" data-den="754 чел/км²"><span class="mo">п Стрельна</span><span class="den">754 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Приморский"><button class="rcap"><span class="rn">Приморский</span><span class="rm">8 округа · от 515 до 17 520 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Комендантский аэродром" data-den="17 520 чел/км²"><span class="mo">Муниципальный округ Комендантский аэродром</span><span class="den">17 520 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ № 65" data-den="17 416 чел/км²"><span class="mo">Муниципальный округ № 65</span><span class="den">17 416 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Озеро Долгое" data-den="16 831 чел/км²"><span class="mo">Муниципальный округ Озеро Долгое</span><span class="den">16 831 чел/км²</span></div>
-<div class="mol" data-slug="mo_045" data-name="Муниципальный округ Юнтолово" data-den="9 775 чел/км²"><span class="mo">Муниципальный округ Юнтолово</span><span class="den">9 775 чел/км²</span></div>
-<div class="mol" data-slug="mo_049" data-name="Муниципальный округ Ланское" data-den="9 041 чел/км²"><span class="mo">Муниципальный округ Ланское</span><span class="den">9 041 чел/км²</span></div>
-<div class="mol" data-slug="mo_066" data-name="Муниципальный округ Коломяги" data-den="4 623 чел/км²"><span class="mo">Муниципальный округ Коломяги</span><span class="den">4 623 чел/км²</span></div>
-<div class="mol" data-slug="mo_089" data-name="Поселок Лисий Нос" data-den="773 чел/км²"><span class="mo">Поселок Лисий Нос</span><span class="den">773 чел/км²</span></div>
-<div class="mol" data-slug="mo_096" data-name="Муниципальный округ Лахта-Ольгино" data-den="515 чел/км²"><span class="mo">Муниципальный округ Лахта-Ольгино</span><span class="den">515 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Пушкинский"><button class="rcap"><span class="rn">Пушкинский</span><span class="rm">5 округа · от 464 до 1 359 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="mo_082" data-name="п Шушары" data-den="1 359 чел/км²"><span class="mo">п Шушары</span><span class="den">1 359 чел/км²</span></div>
-<div class="mol" data-slug="mo_085" data-name="г Пушкин" data-den="1 220 чел/км²"><span class="mo">г Пушкин</span><span class="den">1 220 чел/км²</span></div>
-<div class="mol" data-slug="mo_091" data-name="п Александровская" data-den="675 чел/км²"><span class="mo">п Александровская</span><span class="den">675 чел/км²</span></div>
-<div class="mol" data-slug="mo_092" data-name="п Тярлево" data-den="674 чел/км²"><span class="mo">п Тярлево</span><span class="den">674 чел/км²</span></div>
-<div class="mol" data-slug="mo_097" data-name="г Павловск" data-den="464 чел/км²"><span class="mo">г Павловск</span><span class="den">464 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Фрунзенский"><button class="rcap"><span class="rn">Фрунзенский</span><span class="rm">5 округа · от 4 882 до 21 867 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Георгиевский" data-den="21 867 чел/км²"><span class="mo">Муниципальный округ Георгиевский</span><span class="den">21 867 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Купчино" data-den="19 785 чел/км²"><span class="mo">Муниципальный округ Купчино</span><span class="den">19 785 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Балканский" data-den="17 359 чел/км²"><span class="mo">Муниципальный округ Балканский</span><span class="den">17 359 чел/км²</span></div>
-<div class="mol" data-slug="mo_061" data-name="Муниципальный округ Александровский" data-den="6 248 чел/км²"><span class="mo">Муниципальный округ Александровский</span><span class="den">6 248 чел/км²</span></div>
-<div class="mol" data-slug="mo_065" data-name="Муниципальный округ Волковское" data-den="4 882 чел/км²"><span class="mo">Муниципальный округ Волковское</span><span class="den">4 882 чел/км²</span></div></div></div>
-<div class="rrow" data-d="Центральный"><button class="rcap"><span class="rn">Центральный</span><span class="rm">6 округа · от 4 165 до 20 478 чел/км²</span><span class="chev">▸</span></button><div class="rbody"><div class="mol" data-slug="" data-name="Муниципальный округ Владимирский округ" data-den="20 478 чел/км²"><span class="mo">Муниципальный округ Владимирский округ</span><span class="den">20 478 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Литейный округ" data-den="16 858 чел/км²"><span class="mo">Муниципальный округ Литейный округ</span><span class="den">16 858 чел/км²</span></div>
-<div class="mol" data-slug="" data-name="Муниципальный округ Смольнинское" data-den="13 519 чел/км²"><span class="mo">Муниципальный округ Смольнинское</span><span class="den">13 519 чел/км²</span></div>
-<div class="mol" data-slug="mo_060" data-name="Муниципальный округ № 78" data-den="6 839 чел/км²"><span class="mo">Муниципальный округ № 78</span><span class="den">6 839 чел/км²</span></div>
-<div class="mol" data-slug="mo_063" data-name="Муниципальный округ Лиговка-Ямская" data-den="5 916 чел/км²"><span class="mo">Муниципальный округ Лиговка-Ямская</span><span class="den">5 916 чел/км²</span></div>
-<div class="mol" data-slug="mo_069" data-name="Муниципальный округ Дворцовый округ" data-den="4 165 чел/км²"><span class="mo">Муниципальный округ Дворцовый округ</span><span class="den">4 165 чел/км²</span></div></div></div></section>
+  <section class="mossec">
+  <div class="maphead"><h2>одиночество измеряется не районом — округом</h2>
+  <span>111 округов · население: Росстат 01.01.2025 · клик по округу — реальные фото места из свободного архива</span></div>
+  <div class="dgrid" id="dgrid"><button class="dbtn" data-d="Адмиралтейский">Адмиралтейский<small>6 округа</small></button>
+<button class="dbtn" data-d="Василеостровский">Василеостровский<small>5 округа</small></button>
+<button class="dbtn" data-d="Выборгский">Выборгский<small>7 округа</small></button>
+<button class="dbtn" data-d="Калининский">Калининский<small>7 округа</small></button>
+<button class="dbtn" data-d="Кировский">Кировский<small>7 округа</small></button>
+<button class="dbtn" data-d="Колпинский">Колпинский<small>6 округа</small></button>
+<button class="dbtn" data-d="Красногвардейский">Красногвардейский<small>5 округа</small></button>
+<button class="dbtn" data-d="Красносельский">Красносельский<small>7 округа</small></button>
+<button class="dbtn" data-d="Кронштадтский">Кронштадтский<small>1 округа</small></button>
+<button class="dbtn" data-d="Курортный">Курортный<small>11 округа</small></button>
+<button class="dbtn" data-d="Московский">Московский<small>5 округа</small></button>
+<button class="dbtn" data-d="Невский">Невский<small>9 округа</small></button>
+<button class="dbtn" data-d="Петроградский">Петроградский<small>6 округа</small></button>
+<button class="dbtn" data-d="Петродворцовый">Петродворцовый<small>3 округа</small></button>
+<button class="dbtn" data-d="Приморский">Приморский<small>8 округа</small></button>
+<button class="dbtn" data-d="Пушкинский">Пушкинский<small>5 округа</small></button>
+<button class="dbtn" data-d="Фрунзенский">Фрунзенский<small>5 округа</small></button>
+<button class="dbtn" data-d="Центральный">Центральный<small>6 округа</small></button></div>
+  <div class="mopanel" id="mopanel" style="display:none">
+    <div class="mop-head"><span id="mop-d"></span><button id="mop-back">← к районам</button></div>
+    <div class="mop-list" id="mop-list"></div>
+  </div>
+  <div class="mocard" id="mocard" style="display:none">
+    <button id="mc-back" class="mc-back">← назад</button>
+    <div id="mc-img" class="mc-img"><span class="mc-load">ищу настоящие фото места…</span></div>
+    <div class="mc-info">
+      <div id="mc-name" class="mc-name"></div>
+      <div id="mc-den" class="mc-den"></div>
+      <p class="mc-q">вспомни вечер в этом округе: какое окно горело, когда ты возвращался? что в нём было только твоим?</p>
+      <div class="mc-src">фото: Wikimedia Commons, свободные лицензии · парсинг в браузере</div>
+    </div>
+  </div>
+</section>
+<style>
+.mossec{padding:11vh 6vw;background:linear-gradient(180deg,#160a26,var(--deep,#1a0b2e))}
+.mossec .cap,.mossec .maphead{margin-bottom:4vh}
+.mossec h2{font-size:clamp(26px,4.6vw,46px);margin:0 0 10px;color:#efe9f6;font-weight:600}
+.mossec h2 em,.mossec .maphead span{color:#b57edc}
+.mossec .maphead span{display:block;font-size:13px;margin-top:8px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.dbtn{background:none;border:1px solid rgba(181,126,220,.24);color:#efe9f6;font:inherit;font-size:15px;
+  padding:16px 14px;border-radius:3px;cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.dbtn:hover,.dbtn.on{border-color:#b57edc;background:rgba(181,126,220,.08)}
+.dbtn small{display:block;color:#9c8bbd;font-size:12px;margin-top:4px}
+.mopanel,.mocard{max-width:760px;margin:4vh auto 0;border:1px solid rgba(181,126,220,.24);border-radius:4px;
+  background:rgba(20,10,36,.7);padding:20px 22px}
+.mop-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.mop-head span{font-size:20px;font-weight:600;color:#efe9f6}
+#mop-back,.mc-back{background:none;border:none;color:#b57edc;font:inherit;font-size:13px;cursor:pointer;padding:0}
+.moline{display:flex;justify-content:space-between;gap:16px;padding:11px 2px;cursor:pointer;
+  border-bottom:1px solid rgba(181,126,220,.14);transition:background .15s}
+.moline:hover{background:rgba(181,126,220,.07)}
+.moline .n{color:#efe9f6}
+.moline .d{color:#b57edc;font-variant-numeric:tabular-nums}
+.mc-img{position:relative;height:380px;background:#160a26;margin-bottom:18px;overflow:hidden;border-radius:3px}
+.mc-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.04)}
+.mc-load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9c8bbd;font-size:14px}
+.mc-name{font-size:26px;font-weight:600;color:#efe9f6}
+.mc-den{color:#b57edc;font-size:16px;margin:6px 0 14px}
+.mc-q{font-family:Georgia,serif;font-style:italic;font-size:17px;line-height:1.55;color:#cfc2e2;margin:0 0 14px}
+.mc-src{font-size:11.5px;color:#8d7ab0}
+</style>
+<script>
+(function(){
+  var DATA = {"Адмиралтейский": [{"name": "Муниципальный округ Сенной округ", "den": "18 493 чел/км²"}, {"name": "Муниципальный округ Коломна", "den": "17 748 чел/км²"}, {"name": "Муниципальный округ Семёновский", "den": "13 319 чел/км²"}, {"name": "Муниципальный округ Адмиралтейский округ", "den": "11 415 чел/км²"}, {"name": "Муниципальный округ Измайловское", "den": "10 270 чел/км²"}, {"name": "Муниципальный округ Екатерингофский", "den": "7 114 чел/км²"}], "Василеостровский": [{"name": "Муниципальный округ Морской", "den": "20 376 чел/км²"}, {"name": "Муниципальный округ Васильевский", "den": "13 252 чел/км²"}, {"name": "Муниципальный округ Гавань", "den": "13 037 чел/км²"}, {"name": "Муниципальный округ Остров Декабристов", "den": "9 815 чел/км²"}, {"name": "Муниципальный округ N 7", "den": "8 487 чел/км²"}], "Выборгский": [{"name": "Муниципальный округ Шувалово-Озерки", "den": "16 286 чел/км²"}, {"name": "Муниципальный округ Сосновское", "den": "10 543 чел/км²"}, {"name": "Муниципальный округ Сергиевское", "den": "9 853 чел/км²"}, {"name": "Муниципальный округ Сампсониевское", "den": "8 093 чел/км²"}, {"name": "Муниципальный округ Светлановское", "den": "4 106 чел/км²"}, {"name": "Поселок Парголово", "den": "2 756 чел/км²"}, {"name": "Поселок Левашово", "den": "178 чел/км²"}], "Калининский": [{"name": "Муниципальный округ Северный", "den": "22 430 чел/км²"}, {"name": "Муниципальный округ N 21", "den": "19 271 чел/км²"}, {"name": "Муниципальный округ Прометей", "den": "18 945 чел/км²"}, {"name": "Муниципальный округ Академическое", "den": "16 584 чел/км²"}, {"name": "Муниципальный округ Гражданка", "den": "16 322 чел/км²"}, {"name": "Муниципальный округ Пискаревка", "den": "9 055 чел/км²"}, {"name": "Муниципальный округ Финляндский округ", "den": "7 101 чел/км²"}], "Кировский": [{"name": "Муниципальный округ Красненькая речка", "den": "18 759 чел/км²"}, {"name": "Муниципальный округ Дачное", "den": "16 281 чел/км²"}, {"name": "Муниципальный округ Ульянка", "den": "15 752 чел/км²"}, {"name": "Муниципальный округ Княжево", "den": "13 058 чел/км²"}, {"name": "Муниципальный округ Нарвский округ", "den": "4 368 чел/км²"}, {"name": "Муниципальный округ Автово", "den": "3 541 чел/км²"}, {"name": "Муниципальный округ Морские ворота", "den": "1 300 чел/км²"}], "Колпинский": [{"name": "Поселок Металлострой", "den": "24 636 чел/км²"}, {"name": "г Колпино", "den": "2 560 чел/км²"}, {"name": "Поселок Понтонный", "den": "1 075 чел/км²"}, {"name": "Поселок Усть-Ижора", "den": "631 чел/км²"}, {"name": "Поселок Саперный", "den": "433 чел/км²"}, {"name": "Поселок Петро-Славянка", "den": "124 чел/км²"}], "Красногвардейский": [{"name": "Муниципальный округ Пороховые", "den": "18 065 чел/км²"}, {"name": "Муниципальный округ Большая Охта", "den": "10 030 чел/км²"}, {"name": "Муниципальный округ Малая Охта", "den": "8 173 чел/км²"}, {"name": "Муниципальный округ Полюстрово", "den": "3 679 чел/км²"}, {"name": "Муниципальный округ Ржевка", "den": "3 590 чел/км²"}], "Красносельский": [{"name": "Муниципальный округ Юго-Запад", "den": "20 517 чел/км²"}, {"name": "Муниципальный округ Южно-Приморский", "den": "12 657 чел/км²"}, {"name": "Муниципальный округ Урицк", "den": "10 392 чел/км²"}, {"name": "Муниципальный округ Сосновая Поляна", "den": "8 666 чел/км²"}, {"name": "г Красное Село", "den": "3 172 чел/км²"}, {"name": "Муниципальный округ Константиновское", "den": "2 692 чел/км²"}, {"name": "Муниципальный округ Горелово", "den": "885 чел/км²"}], "Кронштадтский": [{"name": "г Кронштадт", "den": "2 308 чел/км²"}], "Курортный": [{"name": "Поселок Песочный", "den": "567 чел/км²"}, {"name": "г Сестрорецк", "den": "524 чел/км²"}, {"name": "г Зеленогорск", "den": "389 чел/км²"}, {"name": "Поселок Репино", "den": "192 чел/км²"}, {"name": "Поселок Солнечное", "den": "132 чел/км²"}, {"name": "Поселок Молодежное", "den": "127 чел/км²"}, {"name": "Поселок Белоостров", "den": "98 чел/км²"}, {"name": "Поселок Смолячково", "den": "90 чел/км²"}, {"name": "Поселок Комарово", "den": "48 чел/км²"}, {"name": "Поселок Ушково", "den": "32 чел/км²"}, {"name": "Поселок Серово", "den": "31 чел/км²"}], "Московский": [{"name": "Муниципальный округ Новоизмайловское", "den": "12 449 чел/км²"}, {"name": "Муниципальный округ Звездное", "den": "10 598 чел/км²"}, {"name": "Муниципальный округ Гагаринское", "den": "8 233 чел/км²"}, {"name": "Муниципальный округ Московская Застава", "den": "4 497 чел/км²"}, {"name": "Муниципальный округ Пулковский меридиан", "den": "1 273 чел/км²"}], "Невский": [{"name": "Муниципальный округ Оккервиль", "den": "25 101 чел/км²"}, {"name": "Муниципальный округ Невский округ", "den": "15 896 чел/км²"}, {"name": "Муниципальный округ Правобережный", "den": "13 972 чел/км²"}, {"name": "Муниципальный округ N 54", "den": "11 183 чел/км²"}, {"name": "Муниципальный округ Обуховский", "den": "10 446 чел/км²"}, {"name": "Муниципальный округ Народный", "den": "8 236 чел/км²"}, {"name": "Муниципальный округ Рыбацкое", "den": "7 788 чел/км²"}, {"name": "Муниципальный округ Ивановский", "den": "5 012 чел/км²"}, {"name": "Муниципальный округ Невская застава", "den": "4 000 чел/км²"}], "Петроградский": [{"name": "Муниципальный округ Введенский", "den": "14 765 чел/км²"}, {"name": "Муниципальный округ Кронверкское", "den": "9 702 чел/км²"}, {"name": "Муниципальный округ Посадский", "den": "9 284 чел/км²"}, {"name": "Муниципальный округ Аптекарский Остров", "den": "8 207 чел/км²"}, {"name": "Муниципальный округ округ Петровский", "den": "6 141 чел/км²"}, {"name": "Муниципальный округ Чкаловское", "den": "3 195 чел/км²"}], "Петродворцовый": [{"name": "г Петергоф", "den": "1 693 чел/км²"}, {"name": "г Ломоносов", "den": "938 чел/км²"}, {"name": "п Стрельна", "den": "754 чел/км²"}], "Приморский": [{"name": "Муниципальный округ Комендантский аэродром", "den": "17 520 чел/км²"}, {"name": "Муниципальный округ N 65", "den": "17 416 чел/км²"}, {"name": "Муниципальный округ Озеро Долгое", "den": "16 831 чел/км²"}, {"name": "Муниципальный округ Юнтолово", "den": "9 775 чел/км²"}, {"name": "Муниципальный округ Ланское", "den": "9 041 чел/км²"}, {"name": "Муниципальный округ Коломяги", "den": "4 623 чел/км²"}, {"name": "Поселок Лисий Нос", "den": "773 чел/км²"}, {"name": "Муниципальный округ Лахта-Ольгино", "den": "515 чел/км²"}], "Пушкинский": [{"name": "п Шушары", "den": "1 359 чел/км²"}, {"name": "г Пушкин", "den": "1 220 чел/км²"}, {"name": "п Александровская", "den": "675 чел/км²"}, {"name": "п Тярлево", "den": "674 чел/км²"}, {"name": "г Павловск", "den": "464 чел/км²"}], "Фрунзенский": [{"name": "Муниципальный округ Георгиевский", "den": "21 867 чел/км²"}, {"name": "Муниципальный округ Купчино", "den": "19 785 чел/км²"}, {"name": "Муниципальный округ Балканский", "den": "17 359 чел/км²"}, {"name": "Муниципальный округ Александровский", "den": "6 248 чел/км²"}, {"name": "Муниципальный округ Волковское", "den": "4 882 чел/км²"}], "Центральный": [{"name": "Муниципальный округ Владимирский округ", "den": "20 478 чел/км²"}, {"name": "Муниципальный округ Литейный округ", "den": "16 858 чел/км²"}, {"name": "Муниципальный округ Смольнинское", "den": "13 519 чел/км²"}, {"name": "Муниципальный округ N 78", "den": "6 839 чел/км²"}, {"name": "Муниципальный округ Лиговка-Ямская", "den": "5 916 чел/км²"}, {"name": "Муниципальный округ Дворцовый округ", "den": "4 165 чел/км²"}]};
+  var API = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*' +
+            '&generator=search&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url&iiurlwidth=900';
+  var cache = {};
+  var grid = document.getElementById('dgrid');
+  var panel = document.getElementById('mopanel');
+  var card = document.getElementById('mocard');
+  var list = document.getElementById('mop-list');
+  var curD = null;
+
+  Object.keys(DATA).forEach(function(d){
+    var b = document.createElement('button');
+    b.className = 'dbtn';
+    b.innerHTML = d + '<small>' + DATA[d].length + ' округа</small>';
+    b.addEventListener('click', function(){ openDistrict(d, b); });
+    grid.appendChild(b);
+  });
+
+  function openDistrict(d, btn){
+    document.querySelectorAll('.dbtn').forEach(function(b){ b.classList.remove('on'); });
+    if (btn) btn.classList.add('on');
+    curD = d;
+    document.getElementById('mop-d').textContent = d + ' район';
+    list.innerHTML = '';
+    DATA[d].forEach(function(mo){
+      var el = document.createElement('div');
+      el.className = 'moline';
+      el.innerHTML = '<span class="n">' + mo.name + '</span><span class="d">' + mo.den + '</span>';
+      el.addEventListener('click', function(){ openMo(mo, el); });
+      list.appendChild(el);
+    });
+    panel.style.display = 'block';
+    card.style.display = 'none';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function openMo(mo, el){
+    document.getElementById('mc-name').textContent = mo.name;
+    document.getElementById('mc-den').textContent = mo.den + ' человек на квадратный километр';
+    var imgBox = document.getElementById('mc-img');
+    imgBox.innerHTML = '<span class="mc-load">ищу настоящие фото места…</span>';
+    card.style.display = 'block';
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    var key = mo.name;
+    if (cache[key]) { render(cache[key]); return; }
+    var q = key.replace(/^Муниципальный округ\s*/i, '').replace(/^(г|п)\s+/i, '').trim();
+    fetch(API + '&gsrsearch=' + encodeURIComponent(q + ' Санкт-Петербург'))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var pages = d && d.query && d.query.pages || {};
+        var imgs = [];
+        Object.keys(pages).forEach(function(pid){
+          var inf = pages[pid].imageinfo && pages[pid].imageinfo[0];
+          if (inf && inf.thumburl && !/\.svg|\.map|\.pdf/i.test(inf.thumburl))
+            imgs.push({ url: inf.thumburl, cap: pages[pid].title.replace(/^Файл:/, '') });
+        });
+        cache[key] = imgs;
+        render(imgs);
+      })
+      .catch(function(){ render([]); });
+
+    function render(imgs){
+      imgBox.innerHTML = '';
+      if (!imgs.length){
+        imgBox.innerHTML = '<span class="mc-load" style="padding:40px;text-align:center;display:block">'
+          + 'свободных фото этого округа в архиве не нашлось — цифра остаётся, фото добавим точечным парсингом</span>';
+        return;
+      }
+      var first = imgs[0];
+      var im = document.createElement('img');
+      im.src = first.url; im.alt = first.cap; im.loading = 'lazy';
+      im.onload = function(){ document.title = document.title; };
+      imgBox.appendChild(im);
+      if (imgs[1]) {
+        var im2 = document.createElement('img');
+        im2.src = imgs[1].url; im2.alt = imgs[1].cap; im2.loading = 'lazy';
+        im2.style.marginTop = '4px'; im2.style.maxHeight = '160px';
+        imgBox.appendChild(im2);
+      }
+      var cap = document.createElement('div');
+      cap.className = 'mc-src'; cap.style.padding = '8px 12px';
+      cap.textContent = first.cap;
+      imgBox.appendChild(cap);
+    }
+  }
+})();
+</script>
+
   <section class="cubesect"><div class="maphead"><h2>брось кубик — вспомни вечер</h2><span>6 питерских сцен · одна выпадет · вопрос на подумать</span></div>
+  
+
   <div class="scene3d">
     <div class="jump" id="jump">
       <div class="cube" id="cube">
@@ -662,34 +698,7 @@ const GEO = {"type":"FeatureCollection","features":[{"type":"Feature","propertie
 })();
 </script>
 
-<script>
-(function(){
-  var slugs = {"Невский округ": "mo_001", "Адмиралтейский округ": "mo_002", "Оккервиль": "mo_003", "Металлострой": "mo_004", "Северный": "mo_005", "Георгиевский": "mo_006", "Юго-Запад": "mo_007", "Владимирский округ": "mo_008", "Морскойокруг Морской": "mo_009", "Купчино": "mo_010", "Прометей": "mo_011", "Красненькая речка": "mo_012", "Сенной округ": "mo_013", "Пороховые": "mo_014", "Балканский": "mo_017", "Литейный округ": "mo_015", "Озеро Долгое": "mo_016", "Гражданка": "mo_018", "Шувалово-Озерки": "mo_019", "Дачное": "mo_020", "Ульянка": "mo_021", "Введенский": "mo_022", "Правобережный": "mo_023", "Смольнинское": "mo_024", "Семёновский": "mo_025", "Васильевский": "mo_026", "Гавань": "mo_027", "Южно-Приморский": "mo_028", "Новоизмайловское": "mo_029", "Звёздное": "mo_031", "Сосновское": "mo_032", "Обуховский": "mo_033", "Муниципальный округ Новоизмайловское": "mo_034", "Муниципальный округ Адмиралтейский округ": "mo_035", "Муниципальный округ N 54": "mo_036", "Муниципальный округ Звездное": "mo_037", "Муниципальный округ Сосновское": "mo_038", "Муниципальный округ Обуховский": "mo_039", "Муниципальный округ Урицк": "mo_040", "Муниципальный округ Измайловское": "mo_041", "Муниципальный округ Большая Охта": "mo_042", "Муниципальный округ Сергиевское": "mo_043", "Муниципальный округ Остров Декабристов": "mo_044", "Муниципальный округ Юнтолово": "mo_045", "Муниципальный округ Кронверкское": "mo_046", "Муниципальный округ Посадский": "mo_047", "Муниципальный округ Пискаревка": "mo_048", "Муниципальный округ Ланское": "mo_049", "Муниципальный округ Сосновая Поляна": "mo_050", "Муниципальный округ N 7": "mo_051", "Муниципальный округ Народный": "mo_052", "Муниципальный округ Гагаринское": "mo_053", "Муниципальный округ Аптекарский Остров": "mo_054", "Муниципальный округ Малая Охта": "mo_055", "Муниципальный округ Сампсониевское": "mo_056", "Муниципальный округ Рыбацкое": "mo_057", "Муниципальный округ Екатерингофский": "mo_058", "Муниципальный округ Финляндский округ": "mo_059", "Муниципальный округ N 78": "mo_060", "Муниципальный округ Александровский": "mo_061", "Муниципальный округ округ Петровский": "mo_062", "Муниципальный округ Лиговка-Ямская": "mo_063", "Муниципальный округ Ивановский": "mo_064", "Муниципальный округ Волковское": "mo_065", "Муниципальный округ Коломяги": "mo_066", "Муниципальный округ Московская Застава": "mo_067", "Муниципальный округ Нарвский округ": "mo_068", "Муниципальный округ Дворцовый округ": "mo_069", "Муниципальный округ Светлановское": "mo_070", "Муниципальный округ Невская застава": "mo_071", "Муниципальный округ Полюстрово": "mo_072", "Муниципальный округ Ржевка": "mo_073", "Муниципальный округ Автово": "mo_074", "Муниципальный округ Чкаловское": "mo_075", "г Красное Село": "mo_076", "Поселок Парголово": "mo_077", "Муниципальный округ Константиновское": "mo_078", "г Колпино": "mo_079", "г Кронштадт": "mo_080", "г Петергоф": "mo_081", "п Шушары": "mo_082", "Муниципальный округ Морские ворота": "mo_083", "Муниципальный округ Пулковский меридиан": "mo_084", "г Пушкин": "mo_085", "Поселок Понтонный": "mo_086", "г Ломоносов": "mo_087", "Муниципальный округ Горелово": "mo_088", "Поселок Лисий Нос": "mo_089", "п Стрельна": "mo_090", "п Александровская": "mo_091", "п Тярлево": "mo_092", "Поселок Усть-Ижора": "mo_093", "Поселок Песочный": "mo_094", "г Сестрорецк": "mo_095", "Муниципальный округ Лахта-Ольгино": "mo_096", "г Павловск": "mo_097", "Поселок Саперный": "mo_098", "г Зеленогорск": "mo_099", "Поселок Репино": "mo_100", "Поселок Левашово": "mo_101", "Поселок Солнечное": "mo_102", "Поселок Молодежное": "mo_103", "Поселок Петро-Славянка": "mo_104", "Поселок Белоостров": "mo_105", "Поселок Смолячково": "mo_106", "Поселок Комарово": "mo_107", "Поселок Ушково": "mo_108", "Поселок Серово": "mo_109"};
-  var ov = document.createElement('div');
-  ov.id = 'moover';
-  ov.innerHTML = '<div class="mobox"><img id="moimg" alt=""><div class="moinfo">'
-    + '<div id="moname"></div><div id="moden"></div>'
-    + '<p id="moq">вспомни вечер в этом округе: какое окно горело, когда ты возвращался? '
-    + 'что в нём было только твоим?</p>'
-    + '<button id="moclose">закрыть</button></div></div>';
-  document.body.appendChild(ov);
-  document.querySelectorAll('.mol').forEach(function(el){
-    el.style.cursor = 'pointer';
-    el.addEventListener('click', function(){
-      var slug = el.dataset.slug || '';
-      var img = document.getElementById('moimg');
-      if (slug){ img.src = 'mo/' + slug + '.jpg'; img.style.display = 'block'; }
-      else { img.style.display = 'none'; }
-      document.getElementById('moname').textContent = el.dataset.name;
-      document.getElementById('moden').textContent = el.dataset.den;
-      ov.classList.add('on');
-    });
-  });
-  document.getElementById('moclose').addEventListener('click', function(){ ov.classList.remove('on'); });
-  ov.addEventListener('click', function(e){ if (e.target === ov) ov.classList.remove('on'); });
-})();
-</script>
-<script>
+
 (function(){
   var S = [
     {t:"окно", q:"«сидел у окна, а за панелькой напротив одно окно горело до двух — и ты знал, что там тоже не спят»"},
@@ -734,6 +743,5 @@ const GEO = {"type":"FeatureCollection","features":[{"type":"Feature","propertie
   });
 })();
 
-</script>
 </body>
 </html>
